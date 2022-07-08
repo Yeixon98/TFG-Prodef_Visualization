@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import GraficComponent from 'components/graficComponents'
-import { Divider, Grid, NativeSelect } from '@material-ui/core'
+import { Button, Divider, Grid, NativeSelect } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+
+import { updateAttributeStyle } from '../store/actions/problemSolutions'
 
 const useStyles = makeStyles((theme) => ({
   nameProblem: {
@@ -45,6 +47,16 @@ const ViewSolution = () => {
       type: "selectResult",
       payload: event.target.value,
     })
+  }
+  
+  const [attributeSelected, setAttributeSelected] = useState("default")
+  const handleSelectAttribute = (event) => {
+    setAttributeSelected(event.target.value)
+  }
+  
+  const [styleSelected, setStyleSelected] = useState("default")
+  const handleSelectStyle = (event) => {
+    setStyleSelected(event.target.value)
   }
 
 
@@ -182,6 +194,89 @@ const ViewSolution = () => {
             marginBottom: 20
           }}
         />
+
+        <Grid container justifyContent='center'
+          style={{marginBottom: 15}}
+        >
+          <Grid item xs={2}>
+            <NativeSelect
+              disableUnderline
+              onChange={handleSelectAttribute}
+              inputProps={{
+                name: 'attribute',
+                id: 'attribute-native-helper',
+              }}
+              variant='filled'
+            >
+              {
+                problem.problem.objects[0].attributes.map(attribute => {
+                  if(attribute.attribute === 'name') {
+                    return (
+                      <option
+                        value="default"
+                      >
+                        Select Propiertie
+                      </option>
+                    )  
+                  }
+                  else {
+                    return (
+                      <option
+                        value={attribute.attribute}
+                      >
+                        {attribute.attribute[0].toUpperCase() + attribute.attribute.substring(1)}
+                      </option>
+                    )
+                  }
+                })
+              }
+            </NativeSelect>
+          </Grid>
+          <Grid item xs={2}>
+            <NativeSelect
+              disableUnderline
+              onChange={handleSelectStyle}
+              inputProps={{
+                name: 'style',
+                id: 'style-native-helper',
+              }}
+              variant='filled'
+            >
+              <option
+                value="default"
+              >
+                Select Style
+              </option>
+              <option
+                value="width"
+              >
+                Width
+              </option>
+              <option
+                value="height"
+              >
+                Height
+              </option>
+              <option
+                value="color"
+              >
+                Color
+              </option>
+            </NativeSelect>
+          </Grid>
+          <Grid item xs={1}>
+            <Button 
+              style={{
+                textTransform: 'none'
+              }}
+              onClick ={() => {
+                dispatch(updateAttributeStyle(attributeSelected, styleSelected))
+              }}
+            >
+              Apply
+            </Button>
+          </Grid>
+        </Grid>
 
         <Grid 
           container

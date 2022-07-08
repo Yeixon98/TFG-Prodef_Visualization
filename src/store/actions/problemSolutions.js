@@ -310,6 +310,15 @@ export const selectProblem = (problem) => dispatch => {
   })
 }
 
+export const updateAttributeStyle = (attr, style) => dispatch => {
+  dispatch({
+    type: 'addAttributeStyle',
+    payload: {
+      attr: attr,
+      style: style
+    }
+  })
+}
 
 const setProblemLoading = () => {
   return {

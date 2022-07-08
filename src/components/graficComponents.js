@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@material-ui/core'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   binaryIn: {
@@ -26,6 +27,7 @@ const GraficComponent = (props) => {
   const selectResult = props.selectResult
   const selectVariable = props.selectVariable
   const variableValue = problem.solution.results[selectResult].variableValues[selectVariable]
+  const attrStyle = useSelector(store => store.problemSolutions.attributeStyle)
   // console.log("Result Index: " + selectResult);
   // console.log("Variable Index: " + selectVariable);
   // console.log("Variable Valor: ", variableValue);
@@ -34,6 +36,7 @@ const GraficComponent = (props) => {
      variableValue.range.lowerBound === 0 && 
      variableValue.range.upperBound === 1) {
     // Vector Binario
+    console.log("Atributo - Estilo: ", attrStyle);
     return(
       <Grid container direction='column' alignItems='center'>
         <Grid item >Nombre de la Variable: {variableValue.name}</Grid>

@@ -40,6 +40,9 @@ const SolutionDefinitions = () => {
       type: 'selectResult',
       payload: 0
     })
+    dispatch({
+      type: 'resetAttrStyle'
+    })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
