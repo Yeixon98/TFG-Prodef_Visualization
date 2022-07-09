@@ -63,7 +63,7 @@ const ViewSolution = () => {
   if(problem.problem && problem.state && problem.solution) {
     return (
       <div>
-        <Grid container justifyContent='center' spacing={4}>
+        <Grid container justifyContent='center'>
           <Grid container item xs={8} justifyContent='space-between'>
             <Grid item xs={7}
               className={classes.nameProblem}
@@ -198,7 +198,11 @@ const ViewSolution = () => {
         <Grid container justifyContent='center'
           style={{marginBottom: 15}}
         >
-          <Grid item xs={2}>
+          <Grid item
+            style={{
+              marginRight: 50
+            }}
+          >
             <NativeSelect
               disableUnderline
               onChange={handleSelectAttribute}
@@ -232,7 +236,11 @@ const ViewSolution = () => {
               }
             </NativeSelect>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item
+            style={{
+              marginRight: 50
+            }}
+          >
             <NativeSelect
               disableUnderline
               onChange={handleSelectStyle}
@@ -264,10 +272,16 @@ const ViewSolution = () => {
               </option>
             </NativeSelect>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item
+            style={{
+              marginRight: 50
+            }}
+          >
             <Button 
               style={{
-                textTransform: 'none'
+                textTransform: 'none',
+                fontSize: 15,
+                padding: 3
               }}
               onClick ={() => {
                 dispatch(updateAttributeStyle(attributeSelected, styleSelected))
@@ -276,16 +290,37 @@ const ViewSolution = () => {
               Apply
             </Button>
           </Grid>
+          <Grid item
+            style={{
+              marginRight: 50
+            }}
+          >
+            <Button 
+              style={{
+                textTransform: 'none',
+                fontSize: 15,
+                padding: 3
+              }}
+              onClick ={() => {
+                dispatch({
+                  type: 'resetAttrStyle'
+                })
+              }}
+            >
+              Reset Style
+            </Button>
+          </Grid>
         </Grid>
 
-        <Grid 
-          container
-          spacing={2}
-        >
+        <Grid container>
           {
             problem.solution.results[selectResult].variableValues.map((_, index) => {
               return (
-                <Grid item xs={problem.solution.results[selectResult].variableValues.length > 1 ? 6 : 12}>
+                <Grid item xs={12}
+                  style={{
+                    marginBottom: 55
+                  }}
+                >
                   <GraficComponent
                     problem={problem}
                     selectResult={selectResult}
