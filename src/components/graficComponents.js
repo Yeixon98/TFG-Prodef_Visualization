@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     margin: '3px',
     textAlign: 'center',
     width: 60,
-    height: 31
+    height: 31,
+    borderRadius: 3
   },
   binaryOut: {
     padding: '5px',
@@ -18,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
     margin: '3px',
     textAlign: 'center',
     width: 60,
-    height: 31
+    height: 31,
+    borderRadius: 3
   }
 }))
 
@@ -51,7 +53,9 @@ const GraficComponent = (props) => {
             style={{
               padding: 2,
               border: '3px solid green',
-              paddingBottom: 10
+              paddingBottom: 10,
+              borderRadius: 3,
+              marginLeft: 10
             }}
           >
             <Grid item xs={12}
@@ -99,7 +103,9 @@ const GraficComponent = (props) => {
             style={{
               padding: 2,
               border: '3px solid red',
-              paddingBottom: 10
+              paddingBottom: 10,
+              borderRadius: 3,
+              marginRight: 10
             }}
           >
             <Grid item xs={12}>
