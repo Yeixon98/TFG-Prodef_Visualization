@@ -1,10 +1,24 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Typography } from '@material-ui/core'
+import { Divider, Grid } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
-  binaryIn: {
+  containerBinaryIn: {
+    padding: 5,
+    border: '3px solid green',
+    borderRadius: 3,
+    marginLeft: 10,
+    backgroundColor: '#bbffc4'
+  },
+  containerBinaryOut: {
+    padding: 5,
+    border: '3px solid red',
+    borderRadius: 3,
+    marginRight: 10,
+    backgroundColor: '#ffbbbb'
+  },
+  binaryItem: {
     padding: '5px',
     backgroundColor: '#9f90ff',
     margin: '3px',
@@ -13,9 +27,24 @@ const useStyles = makeStyles((theme) => ({
     height: 31,
     borderRadius: 3
   },
+  containerBinaryAll: {
+    padding: 5,
+    border: '3px solid #6741ff',
+    borderRadius: 3,
+    backgroundColor: '#9595ff'
+  },
+  binaryIn: {
+    padding: '5px',
+    backgroundColor: '#bbffc4',
+    margin: '3px',
+    textAlign: 'center',
+    width: 60,
+    height: 31,
+    borderRadius: 3
+  },
   binaryOut: {
     padding: '5px',
-    backgroundColor: '#9f90ff',
+    backgroundColor: '#b5b5b5',
     margin: '3px',
     textAlign: 'center',
     width: 60,
@@ -49,24 +78,9 @@ const GraficComponent = (props) => {
         <Grid item >Simbolo de la Variable: {variableValue.symbol}</Grid>
         
         <Grid item container justifyContent='space-between' direction='row' >
-          <Grid item container xs={5} justifyContent='center'
-            style={{
-              padding: 2,
-              border: '3px solid green',
-              paddingBottom: 10,
-              borderRadius: 3,
-              marginLeft: 10
-            }}
+          <Grid item container xs={5} justifyContent='center' alignContent='center'
+            className={classes.containerBinaryIn}
           >
-            <Grid item xs={12}
-            >
-              <Typography
-                component="div"
-                variant='h5'
-              >
-                Within
-              </Typography>
-            </Grid>
             {
               problem.problem.objects.map((values, index) => {
                 const isInside = variableValue.value[index]
@@ -81,8 +95,8 @@ const GraficComponent = (props) => {
 
                 if(isInside === 1) {
                   return (
-                    <Grid item
-                      className={classes.binaryIn}
+                    <Grid item container alignContent='center' justifyContent='center'
+                      className={classes.binaryItem}
                       style={{
                         width: useWidth,
                         height: useHeight,
@@ -99,23 +113,9 @@ const GraficComponent = (props) => {
           </Grid>
 
 
-          <Grid item container xs={5} justifyContent='center'
-            style={{
-              padding: 2,
-              border: '3px solid red',
-              paddingBottom: 10,
-              borderRadius: 3,
-              marginRight: 10
-            }}
+          <Grid item container xs={5} justifyContent='center' alignContent='center'
+            className={classes.containerBinaryOut}
           >
-            <Grid item xs={12}>
-              <Typography
-                component="div"
-                variant='h5'
-              >
-                Outside
-              </Typography>
-            </Grid>
             {
               problem.problem.objects.map((values, index) => {
                 const isInside = variableValue.value[index]
@@ -130,8 +130,8 @@ const GraficComponent = (props) => {
 
                 if (isInside === 0) {
                   return (
-                    <Grid item
-                      className={classes.binaryOut}
+                    <Grid item container alignContent='center' justifyContent='center'
+                      className={classes.binaryItem}
                       style={{
                         width: useWidth,
                         height: useHeight,
@@ -147,6 +147,48 @@ const GraficComponent = (props) => {
             }
           </Grid>
         </Grid>
+
+        <Divider
+          style={{
+            marginTop: 20,
+            marginBottom: 20
+          }}
+        />
+
+        <Grid item container justifyContent='center' direction='row' xs={12}>
+          <Grid item container xs={10} justifyContent='center' alignContent='center'
+            className={classes.containerBinaryAll}
+          >
+            {
+              problem.problem.objects.map((values, index) => {
+                const isInside = variableValue.value[index]
+                const attributes = {}
+                values.attributes.forEach(value => {
+                  attributes[value.attribute] = value.value
+                })
+                
+                let useWidth = attrStyle['width'] === 'default' ? '' : attributes[attrStyle['width']] * 1.5 + 60
+                let useHeight = attrStyle['height'] === 'default' ? '' : attributes[attrStyle['height']] * 1.5 + 31
+                // let useColor = attrStyle['color'] === 'default' ? 0 : 255 - attributes[attrStyle['color']] * 3
+
+                  return (
+                    <Grid item container alignContent='center' justifyContent='center'
+                      className={isInside === 1 ? classes.binaryIn : classes.binaryOut}
+                      style={{
+                        width: useWidth,
+                        height: useHeight,
+                        // backgroundColor: useColor === 0 ? '' : rgbToHex(useColor, useColor, useColor),
+                        // color: useColor === 0 ? '#414191' : useColor <= 128 ? 'white' : 'black'
+                      }}
+                    >
+                      {attributes.name}
+                    </Grid>
+                  )
+              })
+            }
+          </Grid>
+        </Grid>
+
       </Grid>
     )
   }

@@ -15,13 +15,6 @@ export const getProblems = () => dispatch => {
               "value": 130,
               "name": "Maximize the value of the items",
               "weight": 1
-            },
-            {
-              "expression": "sum x[i]*item[i].value over i=(1:N)",
-              "sense": "maximize",
-              "value": 130,
-              "name": "Maximize the value of the items",
-              "weight": 1
             }
           ],
           "variableValues": [
@@ -32,31 +25,23 @@ export const getProblems = () => dispatch => {
                 1,
                 1,
                 1,
-                0
-              ],
-              "within": "integers",
-              "name": "Items in the knapsack",
-              "range": {
-                "lowerBound": 0,
-                "upperBound": 1
-              },
-              "shape": {
-                "type": "vector",
-                "isPermutation": false,
-                "size": {
-                  "fixed": false,
-                  "value": "N"
-                }
-              }
-            },
-            {
-              "symbol": "y",
-              "value": [
+                0,
                 1,
                 1,
                 1,
                 1,
-                0
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
               ],
               "within": "integers",
               "name": "Items in the knapsack",
@@ -94,7 +79,23 @@ export const getProblems = () => dispatch => {
                 1,
                 1,
                 1,
-                0
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
               ],
               "within": "integers",
               "name": "Items in the knapsack",
@@ -123,7 +124,7 @@ export const getProblems = () => dispatch => {
       "parameters": [
         {
           "symbol": "N",
-          "value": 5,
+          "value": 21,
           "name": "Number of items"
         },
         {
@@ -186,6 +187,278 @@ export const getProblems = () => dispatch => {
         }
       ],
       "objects": [
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 1"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
         {
           "attributes": [
             {
