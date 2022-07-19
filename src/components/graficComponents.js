@@ -192,9 +192,10 @@ const GraficComponent = (props) => {
       </Grid>
     )
   }
-  else if(variableValue.shape.type === "vector" &&
-          variableValue.range.lowerBound === 0 && 
-          variableValue.range.upperBound > 1) {
+  else if(variableValue.shape.type === "vector" && 
+          variableValue.shape.isPermutation &&
+          variableValue.range.lowerBound === '-Infinity' && 
+          variableValue.range.upperBound === 'Infinity') {
     // Vector de enteros
     return(
       <div>

@@ -549,11 +549,331 @@ export const getProblems = () => dispatch => {
     "lastUpdate": 1605879754703
   }
   const problem2 = {
-    problem: {
-      name: "Test2",
+    "state": "resolved",
+    "solution": {
+      "results": [
+        {
+          "isFeasible": true,
+          "goalValues": [
+            {
+              "expression": "(sum Distances[city[i]][city[(i) + (1)]] over i = (1:(N) - (1))) + (Distances[city[N]][city[1]])",
+              "sense": "minimize",
+              "value": 9,
+              "name": "goal name",
+              "weight": 1
+            }
+          ],
+          "variableValues": [
+            {
+              "symbol": "city___",
+              "value": [
+                2,
+                4,
+                1,
+                5,
+                3
+              ],
+              "within": "integers",
+              "name": "city",
+              "range": {
+                "lowerBound": "-Infinity",
+                "upperBound": "Infinity"
+              },
+              "shape": {
+                "type": "vector",
+                "isPermutation": true,
+                "size": {
+                  "fixed": false,
+                  "value": "N"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "computingTime": 0
     },
-    result: 2,
+    "stateMessage": "The problem was successfully solved",
+    "problem": {
+      "name": "TSP",
+      "description": "Optional description (optimal: 130)",
+      "parameters": [],
+      "classes": [
+        {
+          "name": "Distances",
+          "symbol": "Distances",
+          "rowsVariableName": "N",
+          "colsVariableName": "N"
+        }
+      ],
+      "variables": [
+        {
+          "name": "city",
+          "symbol": "city",
+          "within": "integers",
+          "shape": {
+            "type": "vector",
+            "isPermutation": true,
+            "size": {
+              "fixed": false,
+              "value": { "value": { "name": "N" }, "type": "getter_variable" }
+            }
+          }
+        }
+      ],
+      "goals": [
+        {
+          "name": "goal name",
+          "sense": "minimize",
+          "weight": { "$numberInt": "1" },
+          "expression": {
+            "type": "expression",
+            "value": {
+              "left": {
+                "type": "sum_mult_definition",
+                "value": {
+                  "sumOrMult": "sum",
+                  "expression": {
+                    "value": {
+                      "name": "Distances",
+                      "rowIndex": {
+                        "value": {
+                          "name": "city",
+                          "rowIndex": {
+                            "value": { "name": "i" },
+                            "type": "getter_variable"
+                          }
+                        },
+                        "type": "getter_variable"
+                      },
+                      "colIndex": {
+                        "value": {
+                          "name": "city",
+                          "rowIndex": {
+                            "type": "expression",
+                            "value": {
+                              "left": {
+                                "value": { "name": "i" },
+                                "type": "getter_variable"
+                              },
+                              "right": {
+                                "value": { "$numberInt": "1" },
+                                "type": "prodef_number"
+                              },
+                              "operator": "+"
+                            }
+                          }
+                        },
+                        "type": "getter_variable"
+                      }
+                    },
+                    "type": "getter_variable"
+                  },
+                  "upperBound": {
+                    "type": "expression",
+                    "value": {
+                      "left": {
+                        "value": { "name": "N" },
+                        "type": "getter_variable"
+                      },
+                      "right": {
+                        "value": { "$numberInt": "1" },
+                        "type": "prodef_number"
+                      },
+                      "operator": "-"
+                    }
+                  },
+                  "lowerBound": {
+                    "value": { "$numberInt": "1" },
+                    "type": "prodef_number"
+                  },
+                  "variableIterator": "i"
+                }
+              },
+              "right": {
+                "value": {
+                  "name": "Distances",
+                  "rowIndex": {
+                    "value": {
+                      "name": "city",
+                      "rowIndex": {
+                        "value": { "name": "N" },
+                        "type": "getter_variable"
+                      }
+                    },
+                    "type": "getter_variable"
+                  },
+                  "colIndex": {
+                    "value": {
+                      "name": "city",
+                      "rowIndex": {
+                        "value": { "$numberInt": "1" },
+                        "type": "prodef_number"
+                      }
+                    },
+                    "type": "getter_variable"
+                  }
+                },
+                "type": "getter_variable"
+              },
+              "operator": "+"
+            }
+          }
+        }
+      ],
+      "constraints": [],
+      "objects": [
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 1"
+            },
+            {
+              "attribute": "col1",
+              "value": 0
+            },
+            {
+              "attribute": "col2",
+              "value": 4
+            },
+            {
+              "attribute": "col3",
+              "value": 5
+            },
+            {
+              "attribute": "col4",
+              "value": 1
+            },
+            {
+              "attribute": "col5",
+              "value": 8
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 2"
+            },
+            {
+              "attribute": "col1",
+              "value": 1
+            },
+            {
+              "attribute": "col2",
+              "value": 0
+            },
+            {
+              "attribute": "col3",
+              "value": 2
+            },
+            {
+              "attribute": "col4",
+              "value": 8
+            },
+            {
+              "attribute": "col5",
+              "value": 7
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 3"
+            },
+            {
+              "attribute": "col1",
+              "value": 6
+            },
+            {
+              "attribute": "col2",
+              "value": 4
+            },
+            {
+              "attribute": "col3",
+              "value": 0
+            },
+            {
+              "attribute": "col4",
+              "value": 9
+            },
+            {
+              "attribute": "col5",
+              "value": 1
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 4"
+            },
+            {
+              "attribute": "col1",
+              "value": 3
+            },
+            {
+              "attribute": "col2",
+              "value": 4
+            },
+            {
+              "attribute": "col3",
+              "value": 3
+            },
+            {
+              "attribute": "col4",
+              "value": 0
+            },
+            {
+              "attribute": "col5",
+              "value": 8
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 5"
+            },
+            {
+              "attribute": "col1",
+              "value": 1
+            },
+            {
+              "attribute": "col2",
+              "value": 9
+            },
+            {
+              "attribute": "col3",
+              "value": 3
+            },
+            {
+              "attribute": "col4",
+              "value": 6
+            },
+            {
+              "attribute": "col5",
+              "value": 0
+            }
+          ],
+          "class": "city"
+        },
+      ]
+    },
+    "lastUpdate": 1604909954703
   }
+
+  
   const problem3 = {
     problem: {
       name: "Test3",
