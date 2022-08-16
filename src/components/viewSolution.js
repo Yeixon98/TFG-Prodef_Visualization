@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import GraficComponent from 'components/graficComponents'
+import GraficUnit from 'components/graficUnit'
 import { Button, Divider, Grid, NativeSelect } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -321,7 +321,7 @@ const ViewSolution = () => {
                     marginBottom: 55
                   }}
                 >
-                  <GraficComponent
+                  <GraficUnit
                     problem={problem}
                     selectResult={selectResult}
                     selectVariable={index}

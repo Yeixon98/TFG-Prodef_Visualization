@@ -2,7 +2,7 @@
 export const getProblems = () => dispatch => {
   dispatch(setProblemLoading())
   // ADD: Get all problem with solutions 
-  const problem1 = {
+  const backpackSimple = {
     "state": "resolved",
     "solution": {
       "results": [
@@ -548,6 +548,212 @@ export const getProblems = () => dispatch => {
     },
     "lastUpdate": 1605879754703
   }
+
+  const backpackComplex = {
+    "state": "resolved",
+    "solution": {
+      "results": [
+        {
+          "isFeasible": true,
+          "goalValues": [
+            {
+              "expression": "***",
+              "sense": "minimize",
+              "value": 84,
+              "name": "Minimizes the cost of assigning a teacher to a subject",
+              "weight": 1
+            }
+          ],
+          "variableValues": [
+            {
+              "symbol": "x",
+              "value": [
+                [1,0,0,1,0],
+                [0,1,0,0,1],
+                [0,0,1,0,0]
+              ],
+              "within": "integers",
+              "name": "Assigning a teacher to a subject",
+              "range": {
+                "lowerBound": 0,
+                "upperBound": 1
+              },
+              "shape": {
+                "type": "matrix",
+                "isPermutation": false,
+                "size": {
+                  "fixed": false,
+                  "value": "N"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "computingTime": 5015
+    },
+    "stateMessage": "The problem was successfully solved",
+    "problem": {
+      "name": "Assignment 2D",
+      "description": "Optional description (optimal: 130)",
+      "parameters": [],
+      "variables": [],
+      "goals": [
+        {
+          "name": "Minimizes the cost of assigning a teacher to a subject",
+          "expression": "*",
+          "sense": "minimize",
+          "weight": 1
+        }
+      ],
+      "constraints": [
+        {
+          "expression": "***",
+          "name": "***"
+        }
+      ],
+      "classes": [
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            }
+          ],
+          "name": "Profesor",
+          "symbol": "profesor"
+        },
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            }
+          ],
+          "name": "Subjects",
+          "symbol": "subjects"
+        }
+      ],
+      "objects": [
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Profesor 1"
+            }
+          ],
+          "class": "profesor"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Profesor 2"
+            }
+          ],
+          "class": "profesor"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Profesor 3"
+            }
+          ],
+          "class": "profesor"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subjects 1"
+            },
+            {
+              "attribute": "time",
+              "value": 168
+            },
+            {
+              "attribute": "cost",
+              "value": 25
+            }
+          ],
+          "class": "subjects"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subjects 2"
+            },
+            {
+              "attribute": "time",
+              "value": 168
+            },
+            {
+              "attribute": "cost",
+              "value": 25
+            }
+          ],
+          "class": "subjects"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subjects 3"
+            },
+            {
+              "attribute": "time",
+              "value": 168
+            },
+            {
+              "attribute": "cost",
+              "value": 25
+            }
+          ],
+          "class": "subjects"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subjects 4"
+            },
+            {
+              "attribute": "time",
+              "value": 168
+            },
+            {
+              "attribute": "cost",
+              "value": 25
+            }
+          ],
+          "class": "subjects"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subjects 5"
+            },
+            {
+              "attribute": "time",
+              "value": 168
+            },
+            {
+              "attribute": "cost",
+              "value": 25
+            }
+          ],
+          "class": "subjects"
+        }
+      ]
+    },
+    "lastUpdate": 1605879754703
+  }
+
+
+
   const problem2 = {
     "state": "resolved",
     "solution": {
@@ -872,14 +1078,649 @@ export const getProblems = () => dispatch => {
     },
     "lastUpdate": 1604909954703
   }
-
   
-  const problem3 = {
-    problem: {
-      name: "Test3",
+  const vrp = {
+    "state": "resolved",
+    "solution": {
+      "results": [
+        {
+          "isFeasible": true,
+          "goalValues": [
+            {
+              "expression": "***",
+              "sense": "minimize",
+              "value": 6208,
+              "name": "***",
+              "weight": 1
+            }
+          ],
+          "variableValues": [
+            {
+              "symbol": "x",
+              "value": [
+                [0,8,6,2,5,0],
+                [0,7,1,3,0],
+                [0,9,4,10,0],
+              ],
+              "within": "integers",
+              "name": "routes",
+              "range": {
+                "lowerBound": "-Infinity",
+                "upperBound": "Infinity"
+              },
+              "shape": {
+                "type": "matrix",
+                "isPermutation": true,
+                "size": {
+                  "fixed": false,
+                  "value": "N"
+                }
+              }
+            }
+          ]
+        },
+      ],
+      "computingTime": 5015
     },
-    result: 3,
+    "stateMessage": "The problem was successfully solved",
+    "problem": {
+      "name": "Problema de VRP",
+      "description": "Optional description (optimal: 130)",
+      "parameters": [],
+      "variables": [],
+      "goals": [],
+      "constraints": [],
+      "classes": [],
+      "objects": [
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 1"
+            },
+            {
+              "attribute": "city1",
+              "value": 0
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 2"
+            },
+            {
+              "attribute": "city1",
+              "value": 25
+            },
+            {
+              "attribute": "city2",
+              "value": 0
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 3"
+            },
+            {
+              "attribute": "city1",
+              "value": 12
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 0
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 4"
+            },
+            {
+              "attribute": "city1",
+              "value": 45
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 0
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 5"
+            },
+            {
+              "attribute": "city1",
+              "value": 45
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 0
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 6"
+            },
+            {
+              "attribute": "city1",
+              "value": 23
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 7"
+            },
+            {
+              "attribute": "city1",
+              "value": 26
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 8"
+            },
+            {
+              "attribute": "city1",
+              "value": 25
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 9"
+            },
+            {
+              "attribute": "city1",
+              "value": 57
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 10"
+            },
+            {
+              "attribute": "city1",
+              "value": 45
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 11"
+            },
+            {
+              "attribute": "city1",
+              "value": 14
+            },
+            {
+              "attribute": "city2",
+              "value": 33
+            },
+            {
+              "attribute": "city3",
+              "value": 33
+            },
+            {
+              "attribute": "city4",
+              "value": 33
+            },
+            {
+              "attribute": "city5",
+              "value": 33
+            },
+            {
+              "attribute": "city6",
+              "value": 33
+            },
+            {
+              "attribute": "city7",
+              "value": 33
+            },
+            {
+              "attribute": "city8",
+              "value": 33
+            },
+            {
+              "attribute": "city9",
+              "value": 33
+            },
+            {
+              "attribute": "city10",
+              "value": 33
+            },
+            {
+              "attribute": "city11",
+              "value": 33
+            }
+          ],
+          "class": "city"
+        },
+        
+      ]
+    },
+    "lastUpdate": 1605820754703
   }
+  
   const problem4 = {
     problem: {
       name: "Test4",
@@ -887,7 +1728,7 @@ export const getProblems = () => dispatch => {
     result: 4,
   }
 
-  let data = [problem1, problem2, problem3, problem4]
+  let data = [backpackSimple, backpackComplex, problem2, vrp, problem4]
 
   dispatch({
     type: "setProblem",

@@ -58,6 +58,7 @@ const SolutionDefinitions = () => {
           return (
             <Grid container item xs={5}
               justifyContent='center'
+              key={problem.problem.name}
             >
               <Grid item xs={10}
                 className={classes.problemItem}
