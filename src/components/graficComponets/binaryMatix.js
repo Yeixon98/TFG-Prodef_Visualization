@@ -1,6 +1,10 @@
 import React from "react";
-import { Divider, Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import { useSelector } from "react-redux";
+
+import SelectStyle from "components/selectStyle";
+
+import { rgbToHex } from "../../store/actions/problemSolutions"
 
 const BinaryMatrix = (props) => {
   const problem = props.problem
@@ -18,80 +22,92 @@ const BinaryMatrix = (props) => {
   const objects = allSymbols.map(symbol => {
     return problem.problem.objects.filter(object => object.class === symbol)
   })
-
   const objectsRow = objects[0].length === lengthRow ? objects[0] : objects[1]
   const objectsCol = objects[1].length === lengthCol ? objects[1] : objects[0]
-
+  
+  const allAttributes = objectsCol[0].attributes.map(value => value.attribute).filter(attribute => attribute !== "name")
 
   return (
-    <Grid container direction='column' alignItems="center">
+    <Grid container justifyContent="center" style={{marginTop: 20}}>
+      <Grid item xs={12}>
+        <SelectStyle
+          attributes = {allAttributes}
+          styles = {["width", "height", "color"]}
+        />
+      </Grid>
       
-      <Grid item >Name Variable: {variableValue.name}</Grid>
-      <Grid item >Symbol Variable: {variableValue.symbol}</Grid>
-
-      <Divider
+      <Grid item
         style={{
-          marginTop: 20,
-          marginBottom: 20
+          margin: '10px 0'
         }}
-      />
-
-      <Grid item container justifyContent="center" xs={12}>
-        {variableValue.value.map((contentRow, row) => {
+      >
+        <table>
+          <td>
+            <tr>Variable Name: </tr>
+            <tr>Variable Symbol: </tr>
+          </td>
+          <td>
+            <tr>{variableValue.name}</tr>
+            <tr>{variableValue.symbol.toUpperCase()}</tr>
+          </td>
+        </table>
+      </Grid>
+     
+      <Grid item xs={12} container justifyContent="center" >
+        {variableValue.value.map((resultRow, row) => {
           return (
-            <Grid item container xs={2}
-              style={{
-                border: '2px solid blue',
-                margin: '0 5px'
-              }}
-            >
-              <Grid item xs={12}
+            <Grid item container xs={3} direction='column'style={{borderRadius: 5,border: '2px solid blue',margin: '0 5px'}}>
+
+              <Grid item container justifyContent="center" alignItems="center"
                 style={{
-                  textAlign: 'center',
                   borderBottom: '2px solid blue',
                   padding: '2px'
                 }}
               >
-                <Typography
-                  variant="h6"
-                >
+                <Typography variant="h6">
                   {objectsRow[row].attributes[0].value}
                 </Typography>
               </Grid>
-              <Grid item container xs={12} justifyContent="space-around"
-                style={{
-                  padding: '2px',
-                }}
-              >
-                {contentRow.map((contentCol, col) => {
-                  if(contentCol === 1) {
+
+              <Grid item container justifyContent="center" style={{padding: '2px'}}>
+                {
+                // eslint-disable-next-line
+                resultRow.map((resultCol, col) => {
+                  if(resultCol === 1) {
                     const attributes = {}
                     objectsCol[col].attributes.forEach(value => {
                       attributes[value.attribute] = value.value
                     })
-                    console.log(attributes);
-                    let useWidth = attrStyle['width'] === 'default' ? '' : attributes[attrStyle['width']] * 1.5 + 60
-                    let useHeight = attrStyle['height'] === 'default' ? '' : attributes[attrStyle['height']] * 1.5 + 31
+
+                    let useWidth = attrStyle['width'] === 'default' ? 'auto' : attributes[attrStyle['width']]
+                    let useHeight = attrStyle['height'] === 'default' ? 'auto' : attributes[attrStyle['height']]
+                    let useColor = attrStyle['color'] === 'default' ? 0 : 255 - attributes[attrStyle['color']]
+
                     return (
-                      <Grid item
+                      <Grid item container justifyContent="center" alignItems="center"
                         style={{
                           width: useWidth,
-                          height: useHeight
+                          height: useHeight,
+                          padding: '5px',
+                          backgroundColor: useColor === 0 ? '#bbffc4' : rgbToHex(useColor, useColor, useColor),
+                          color: useColor === 0 ? '#000000' : useColor <= 128 ? 'white' : 'black',
+                          margin: '3px',
+                          borderRadius: 3,
+                          minHeight: '30px',
+                          minWidth: '90px',
+                          textOverflow: 'ellipsis'
+                          // color: useColor === 0 ? '#414191' : useColor <= 128 ? 'white' : 'black'
                         }}
                       >
-                        <Typography
-                        >
+                        <Typography>
                           {objectsCol[col].attributes[0].value}
                         </Typography>
                       </Grid>
                     )
-                  } else {
-                    return (
-                      <></>
-                    )
                   }
                 })}
               </Grid>
+
             </Grid>
           )
         })}

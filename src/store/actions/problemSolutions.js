@@ -568,9 +568,45 @@ export const getProblems = () => dispatch => {
             {
               "symbol": "x",
               "value": [
-                [1,0,0,1,0],
-                [0,1,0,0,1],
-                [0,0,1,0,0]
+                [1,1,1,1,1,1],
+                [0,1,0,0,1,0],
+                [0,0,1,0,0,1]
+              ],
+              "within": "integers",
+              "name": "Assigning a teacher to a subject",
+              "range": {
+                "lowerBound": 0,
+                "upperBound": 1
+              },
+              "shape": {
+                "type": "matrix",
+                "isPermutation": false,
+                "size": {
+                  "fixed": false,
+                  "value": "N"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "isFeasible": true,
+          "goalValues": [
+            {
+              "expression": "***",
+              "sense": "minimize",
+              "value": 84,
+              "name": "Minimizes the cost of assigning a teacher to a subject",
+              "weight": 1
+            }
+          ],
+          "variableValues": [
+            {
+              "symbol": "x",
+              "value": [
+                [1,0,1,0,1,1],
+                [0,0,1,0,1,0],
+                [0,0,1,1,0,1]
               ],
               "within": "integers",
               "name": "Assigning a teacher to a subject",
@@ -628,6 +664,14 @@ export const getProblems = () => dispatch => {
             {
               "name": "Name",
               "symbol": "name"
+            },
+            {
+              "attribute": "Time",
+              "symbol": "time"
+            },
+            {
+              "attribute": "Cost",
+              "symbol": "cost"
             }
           ],
           "name": "Subjects",
@@ -735,6 +779,23 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "name",
               "value": "Subjects 5"
+            },
+            {
+              "attribute": "time",
+              "value": 168
+            },
+            {
+              "attribute": "cost",
+              "value": 25
+            }
+          ],
+          "class": "subjects"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subjects 6"
             },
             {
               "attribute": "time",
@@ -1758,4 +1819,8 @@ const setProblemLoading = () => {
   return {
     type: 'loading'
   }
+}
+
+export const rgbToHex = (r, g, b) => {
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }

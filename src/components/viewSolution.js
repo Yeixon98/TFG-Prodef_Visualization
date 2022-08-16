@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import GraficUnit from 'components/graficUnit'
-import { Button, Divider, Grid, NativeSelect } from '@material-ui/core'
+import { Grid, NativeSelect } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { updateAttributeStyle } from '../store/actions/problemSolutions'
 
 const useStyles = makeStyles((theme) => ({
   nameProblem: {
@@ -48,17 +47,6 @@ const ViewSolution = () => {
       payload: event.target.value,
     })
   }
-  
-  const [attributeSelected, setAttributeSelected] = useState("default")
-  const handleSelectAttribute = (event) => {
-    setAttributeSelected(event.target.value)
-  }
-  
-  const [styleSelected, setStyleSelected] = useState("default")
-  const handleSelectStyle = (event) => {
-    setStyleSelected(event.target.value)
-  }
-
 
   if(problem.problem && problem.state && problem.solution) {
     return (
@@ -188,139 +176,11 @@ const ViewSolution = () => {
           </Grid>
         </Grid>
 
-        <Divider
-          style={{
-            marginTop: 20,
-            marginBottom: 20
-          }}
-        />
-
-        <Grid container justifyContent='center'
-          style={{marginBottom: 15}}
-        >
-          <Grid item
-            style={{
-              marginRight: 50
-            }}
-          >
-            <NativeSelect
-              disableUnderline
-              onChange={handleSelectAttribute}
-              inputProps={{
-                name: 'attribute',
-                id: 'attribute-native-helper',
-              }}
-              variant='filled'
-            >
-              {
-                problem.problem.objects[0].attributes.map(attribute => {
-                  if(attribute.attribute === 'name') {
-                    return (
-                      <option
-                        value="default"
-                      >
-                        Select Propiertie
-                      </option>
-                    )  
-                  }
-                  else {
-                    return (
-                      <option
-                        value={attribute.attribute}
-                      >
-                        {attribute.attribute[0].toUpperCase() + attribute.attribute.substring(1)}
-                      </option>
-                    )
-                  }
-                })
-              }
-            </NativeSelect>
-          </Grid>
-          <Grid item
-            style={{
-              marginRight: 50
-            }}
-          >
-            <NativeSelect
-              disableUnderline
-              onChange={handleSelectStyle}
-              inputProps={{
-                name: 'style',
-                id: 'style-native-helper',
-              }}
-              variant='filled'
-            >
-              <option
-                value="default"
-              >
-                Select Style
-              </option>
-              <option
-                value="width"
-              >
-                Width
-              </option>
-              <option
-                value="height"
-              >
-                Height
-              </option>
-              <option
-                value="color"
-              >
-                Color
-              </option>
-            </NativeSelect>
-          </Grid>
-          <Grid item
-            style={{
-              marginRight: 50
-            }}
-          >
-            <Button 
-              style={{
-                textTransform: 'none',
-                fontSize: 15,
-                padding: 3
-              }}
-              onClick ={() => {
-                dispatch(updateAttributeStyle(attributeSelected, styleSelected))
-              }}
-            >
-              Apply
-            </Button>
-          </Grid>
-          <Grid item
-            style={{
-              marginRight: 50
-            }}
-          >
-            <Button 
-              style={{
-                textTransform: 'none',
-                fontSize: 15,
-                padding: 3
-              }}
-              onClick ={() => {
-                dispatch({
-                  type: 'resetAttrStyle'
-                })
-              }}
-            >
-              Reset Style
-            </Button>
-          </Grid>
-        </Grid>
-
         <Grid container>
           {
             problem.solution.results[selectResult].variableValues.map((_, index) => {
               return (
-                <Grid item xs={12}
-                  style={{
-                    marginBottom: 55
-                  }}
-                >
+                <Grid item xs={12}>
                   <GraficUnit
                     problem={problem}
                     selectResult={selectResult}

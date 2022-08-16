@@ -18,7 +18,7 @@ const GraficUnit = (props) => {
       // Vector Binario
       return (
         <Grid container justifyContent="center">
-          <Grid item xs={11}>
+          <Grid item xs={12}>
             <BinaryVector
               problem={problem}
               selectResult={selectResult}
@@ -31,7 +31,7 @@ const GraficUnit = (props) => {
       // Vector con Permutacion
       return (
         <Grid container justifyContent="center">
-          <Grid item>
+          <Grid item xs={12}>
             <h1>Vector con Permutacion</h1>
           </Grid>
         </Grid>
@@ -40,7 +40,7 @@ const GraficUnit = (props) => {
       // Vector de Entero
       return (
         <Grid container justifyContent="center">
-          <Grid item>
+          <Grid item xs={12}>
             <h1>Vector de Entero</h1>
           </Grid>
         </Grid>
@@ -67,7 +67,7 @@ const GraficUnit = (props) => {
       // Matriz con Permutacion
       return (
         <Grid container justifyContent="center">
-          <Grid item>
+          <Grid item xs={12}>
             <h1>Matiz con Permutacion</h1>
           </Grid>
         </Grid>
@@ -76,7 +76,7 @@ const GraficUnit = (props) => {
       // Matriz de Entero
       return (
         <Grid container justifyContent="center">
-          <Grid item>
+          <Grid item xs={12}>
             <h1>Matiz de Entero</h1>
           </Grid>
         </Grid>
@@ -85,7 +85,7 @@ const GraficUnit = (props) => {
   } else {
     return (
       <Grid container justifyContent="center">
-        <Grid item>
+        <Grid item xs={12}>
           <h1>Uncatch Type Solution</h1>
         </Grid>
       </Grid>
