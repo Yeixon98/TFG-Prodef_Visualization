@@ -813,9 +813,7 @@ export const getProblems = () => dispatch => {
     "lastUpdate": 1605879754703
   }
 
-
-
-  const problem2 = {
+  const tsp = {
     "state": "resolved",
     "solution": {
       "results": [
@@ -832,13 +830,51 @@ export const getProblems = () => dispatch => {
           ],
           "variableValues": [
             {
-              "symbol": "city___",
+              "symbol": "city",
               "value": [
+                0,
                 2,
                 4,
                 1,
-                5,
                 3
+              ],
+              "within": "integers",
+              "name": "city",
+              "range": {
+                "lowerBound": "-Infinity",
+                "upperBound": "Infinity"
+              },
+              "shape": {
+                "type": "vector",
+                "isPermutation": true,
+                "size": {
+                  "fixed": false,
+                  "value": "N"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "isFeasible": true,
+          "goalValues": [
+            {
+              "expression": "(sum Distances[city[i]][city[(i) + (1)]] over i = (1:(N) - (1))) + (Distances[city[N]][city[1]])",
+              "sense": "minimize",
+              "value": 9,
+              "name": "goal name",
+              "weight": 1
+            }
+          ],
+          "variableValues": [
+            {
+              "symbol": "city",
+              "value": [
+                3,
+                0,
+                1,
+                2,
+                4,
               ],
               "within": "integers",
               "name": "city",
@@ -875,7 +911,7 @@ export const getProblems = () => dispatch => {
       ],
       "variables": [
         {
-          "name": "city",
+          "name": "City",
           "symbol": "city",
           "within": "integers",
           "shape": {
@@ -994,27 +1030,11 @@ export const getProblems = () => dispatch => {
           "attributes": [
             {
               "attribute": "name",
-              "value": "City 1"
+              "value": "City 1 Very long Extend"
             },
             {
-              "attribute": "col1",
-              "value": 0
-            },
-            {
-              "attribute": "col2",
-              "value": 4
-            },
-            {
-              "attribute": "col3",
-              "value": 5
-            },
-            {
-              "attribute": "col4",
-              "value": 1
-            },
-            {
-              "attribute": "col5",
-              "value": 8
+              "attribute": "distance",
+              "value": [0,4,5,1,8]
             }
           ],
           "class": "city"
@@ -1026,24 +1046,8 @@ export const getProblems = () => dispatch => {
               "value": "City 2"
             },
             {
-              "attribute": "col1",
-              "value": 1
-            },
-            {
-              "attribute": "col2",
-              "value": 0
-            },
-            {
-              "attribute": "col3",
-              "value": 2
-            },
-            {
-              "attribute": "col4",
-              "value": 8
-            },
-            {
-              "attribute": "col5",
-              "value": 7
+              "attribute": "distance",
+              "value": [1,0,2,8,7]
             }
           ],
           "class": "city"
@@ -1055,24 +1059,8 @@ export const getProblems = () => dispatch => {
               "value": "City 3"
             },
             {
-              "attribute": "col1",
-              "value": 6
-            },
-            {
-              "attribute": "col2",
-              "value": 4
-            },
-            {
-              "attribute": "col3",
-              "value": 0
-            },
-            {
-              "attribute": "col4",
-              "value": 9
-            },
-            {
-              "attribute": "col5",
-              "value": 1
+              "attribute": "distance",
+              "value": [6,4,0,9,1]
             }
           ],
           "class": "city"
@@ -1084,24 +1072,8 @@ export const getProblems = () => dispatch => {
               "value": "City 4"
             },
             {
-              "attribute": "col1",
-              "value": 3
-            },
-            {
-              "attribute": "col2",
-              "value": 4
-            },
-            {
-              "attribute": "col3",
-              "value": 3
-            },
-            {
-              "attribute": "col4",
-              "value": 0
-            },
-            {
-              "attribute": "col5",
-              "value": 8
+              "attribute": "distance",
+              "value": [3,4,3,0,8]
             }
           ],
           "class": "city"
@@ -1113,24 +1085,8 @@ export const getProblems = () => dispatch => {
               "value": "City 5"
             },
             {
-              "attribute": "col1",
-              "value": 1
-            },
-            {
-              "attribute": "col2",
-              "value": 9
-            },
-            {
-              "attribute": "col3",
-              "value": 3
-            },
-            {
-              "attribute": "col4",
-              "value": 6
-            },
-            {
-              "attribute": "col5",
-              "value": 0
+              "attribute": "distance",
+              "value": [1,9,3,6,0]
             }
           ],
           "class": "city"
@@ -1161,7 +1117,7 @@ export const getProblems = () => dispatch => {
               "value": [
                 [0,8,6,2,5,0],
                 [0,7,1,3,0],
-                [0,9,4,10,0],
+                [0,9,4,0],
               ],
               "within": "integers",
               "name": "routes",
@@ -1200,48 +1156,8 @@ export const getProblems = () => dispatch => {
               "value": "City 1"
             },
             {
-              "attribute": "city1",
-              "value": 0
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [0,1,2,4,5,4,6,4,9,8]
             }
           ],
           "class": "city"
@@ -1253,48 +1169,8 @@ export const getProblems = () => dispatch => {
               "value": "City 2"
             },
             {
-              "attribute": "city1",
-              "value": 25
-            },
-            {
-              "attribute": "city2",
-              "value": 0
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [2,0,4,6,6,5,4,9,8,5]
             }
           ],
           "class": "city"
@@ -1306,48 +1182,8 @@ export const getProblems = () => dispatch => {
               "value": "City 3"
             },
             {
-              "attribute": "city1",
-              "value": 12
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 0
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [2,4,0,6,6,5,4,9,8,5]
             }
           ],
           "class": "city"
@@ -1359,48 +1195,8 @@ export const getProblems = () => dispatch => {
               "value": "City 4"
             },
             {
-              "attribute": "city1",
-              "value": 45
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 0
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [2,4,6,0,6,5,4,9,8,5]
             }
           ],
           "class": "city"
@@ -1412,48 +1208,8 @@ export const getProblems = () => dispatch => {
               "value": "City 5"
             },
             {
-              "attribute": "city1",
-              "value": 45
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 0
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [2,4,6,6,0,5,4,9,8,5]
             }
           ],
           "class": "city"
@@ -1465,48 +1221,8 @@ export const getProblems = () => dispatch => {
               "value": "City 6"
             },
             {
-              "attribute": "city1",
-              "value": 23
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [2,4,6,6,5,0,4,9,8,5]
             }
           ],
           "class": "city"
@@ -1518,48 +1234,8 @@ export const getProblems = () => dispatch => {
               "value": "City 7"
             },
             {
-              "attribute": "city1",
-              "value": 26
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [2,4,6,6,5,4,0,9,8,5]
             }
           ],
           "class": "city"
@@ -1571,48 +1247,8 @@ export const getProblems = () => dispatch => {
               "value": "City 8"
             },
             {
-              "attribute": "city1",
-              "value": 25
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [2,4,6,6,5,4,9,0,8,5]
             }
           ],
           "class": "city"
@@ -1624,48 +1260,8 @@ export const getProblems = () => dispatch => {
               "value": "City 9"
             },
             {
-              "attribute": "city1",
-              "value": 57
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [2,4,6,6,5,4,9,8,0,5]
             }
           ],
           "class": "city"
@@ -1677,106 +1273,12 @@ export const getProblems = () => dispatch => {
               "value": "City 10"
             },
             {
-              "attribute": "city1",
-              "value": 45
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
+              "attribute": "distance",
+              "value": [2,4,6,6,5,4,9,8,5,0]
             }
           ],
           "class": "city"
         },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "City 11"
-            },
-            {
-              "attribute": "city1",
-              "value": 14
-            },
-            {
-              "attribute": "city2",
-              "value": 33
-            },
-            {
-              "attribute": "city3",
-              "value": 33
-            },
-            {
-              "attribute": "city4",
-              "value": 33
-            },
-            {
-              "attribute": "city5",
-              "value": 33
-            },
-            {
-              "attribute": "city6",
-              "value": 33
-            },
-            {
-              "attribute": "city7",
-              "value": 33
-            },
-            {
-              "attribute": "city8",
-              "value": 33
-            },
-            {
-              "attribute": "city9",
-              "value": 33
-            },
-            {
-              "attribute": "city10",
-              "value": 33
-            },
-            {
-              "attribute": "city11",
-              "value": 33
-            }
-          ],
-          "class": "city"
-        },
-        
       ]
     },
     "lastUpdate": 1605820754703
@@ -1789,7 +1291,7 @@ export const getProblems = () => dispatch => {
     result: 4,
   }
 
-  let data = [backpackSimple, backpackComplex, problem2, vrp, problem4]
+  let data = [backpackSimple, backpackComplex, tsp, vrp, problem4]
 
   dispatch({
     type: "setProblem",

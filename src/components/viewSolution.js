@@ -75,6 +75,7 @@ const ViewSolution = () => {
                 {problem.solution.results.map((_, index) => {
                   return (
                     <option
+                      key={index}
                       value={index}
                     >
                       Result {index + 1}

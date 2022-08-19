@@ -2,6 +2,10 @@ import { Grid } from "@material-ui/core";
 import React from "react";
 import BinaryMatrix from "./graficComponets/binaryMatix";
 import BinaryVector from "./graficComponets/binaryVector";
+import IntegerMatrix from "./graficComponets/integerMatrix";
+import IntegerVector from "./graficComponets/integerVector";
+import PermutationMatrix from "./graficComponets/permutationMatrix";
+import PermutationVector from "./graficComponets/permutationVector";
 
 const GraficUnit = (props) => {
   const problem = props.problem;
@@ -32,7 +36,11 @@ const GraficUnit = (props) => {
       return (
         <Grid container justifyContent="center">
           <Grid item xs={12}>
-            <h1>Vector con Permutacion</h1>
+            <PermutationVector
+              problem={problem}
+              selectResult={selectResult}
+              selectVariable={selectVariable}
+            />
           </Grid>
         </Grid>
       );
@@ -41,7 +49,11 @@ const GraficUnit = (props) => {
       return (
         <Grid container justifyContent="center">
           <Grid item xs={12}>
-            <h1>Vector de Entero</h1>
+            <IntegerVector
+              problem={problem}
+              selectResult={selectResult}
+              selectVariable={selectVariable}
+            />
           </Grid>
         </Grid>
       );
@@ -68,7 +80,11 @@ const GraficUnit = (props) => {
       return (
         <Grid container justifyContent="center">
           <Grid item xs={12}>
-            <h1>Matiz con Permutacion</h1>
+            <PermutationMatrix
+              problem={problem}
+              selectResult={selectResult}
+              selectVariable={selectVariable}
+            />
           </Grid>
         </Grid>
       );
@@ -77,7 +93,11 @@ const GraficUnit = (props) => {
       return (
         <Grid container justifyContent="center">
           <Grid item xs={12}>
-            <h1>Matiz de Entero</h1>
+            <IntegerMatrix
+              problem={problem}
+              selectResult={selectResult}
+              selectVariable={selectVariable}
+            />
           </Grid>
         </Grid>
       );

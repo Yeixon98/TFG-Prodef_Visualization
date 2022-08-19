@@ -65,7 +65,7 @@ const SelectStyle = (props) => {
               <option value={null}></option>
               {attributes.map((attribute) => {
                 return (
-                  <option value={attribute}>
+                  <option key={attribute} value={attribute}>
                     {attribute[0].toUpperCase() + attribute.substring(1)}
                   </option>
                 );
