@@ -16,10 +16,10 @@ const BinaryMatrix = (props) => {
   // Obtein group col and row
   const lengthRow = variableValue.value.length
   const lengthCol = variableValue.value[0].length
-  const allSymbols = problem.problem.classes.map((_class) => {
+  const allClass = problem.problem.classes.map((_class) => {
     return _class.symbol
   })
-  const objects = allSymbols.map(symbol => {
+  const objects = allClass.map(symbol => {
     return problem.problem.objects.filter(object => object.class === symbol)
   })
   const objectsRow = objects[0].length === lengthRow ? objects[0] : objects[1]

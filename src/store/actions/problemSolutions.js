@@ -636,7 +636,7 @@ export const getProblems = () => dispatch => {
       "variables": [],
       "goals": [
         {
-          "name": "Minimizes the cost of assigning a teacher to a subject",
+          "name": "Minimize the cost of assigning a teacher to a subject",
           "expression": "*",
           "sense": "minimize",
           "weight": 1
@@ -823,7 +823,7 @@ export const getProblems = () => dispatch => {
             {
               "expression": "(sum Distances[city[i]][city[(i) + (1)]] over i = (1:(N) - (1))) + (Distances[city[N]][city[1]])",
               "sense": "minimize",
-              "value": 9,
+              "value": 18,
               "name": "goal name",
               "weight": 1
             }
@@ -861,7 +861,7 @@ export const getProblems = () => dispatch => {
             {
               "expression": "(sum Distances[city[i]][city[(i) + (1)]] over i = (1:(N) - (1))) + (Distances[city[N]][city[1]])",
               "sense": "minimize",
-              "value": 9,
+              "value": 10,
               "name": "goal name",
               "weight": 1
             }
@@ -901,130 +901,36 @@ export const getProblems = () => dispatch => {
       "name": "TSP",
       "description": "Optional description (optimal: 130)",
       "parameters": [],
-      "classes": [
-        {
-          "name": "Distances",
-          "symbol": "Distances",
-          "rowsVariableName": "N",
-          "colsVariableName": "N"
-        }
-      ],
-      "variables": [
-        {
-          "name": "City",
-          "symbol": "city",
-          "within": "integers",
-          "shape": {
-            "type": "vector",
-            "isPermutation": true,
-            "size": {
-              "fixed": false,
-              "value": { "value": { "name": "N" }, "type": "getter_variable" }
-            }
-          }
-        }
-      ],
+      "variables": [],
       "goals": [
         {
-          "name": "goal name",
+          "name": "***",
+          "expression": "***",
           "sense": "minimize",
-          "weight": { "$numberInt": "1" },
-          "expression": {
-            "type": "expression",
-            "value": {
-              "left": {
-                "type": "sum_mult_definition",
-                "value": {
-                  "sumOrMult": "sum",
-                  "expression": {
-                    "value": {
-                      "name": "Distances",
-                      "rowIndex": {
-                        "value": {
-                          "name": "city",
-                          "rowIndex": {
-                            "value": { "name": "i" },
-                            "type": "getter_variable"
-                          }
-                        },
-                        "type": "getter_variable"
-                      },
-                      "colIndex": {
-                        "value": {
-                          "name": "city",
-                          "rowIndex": {
-                            "type": "expression",
-                            "value": {
-                              "left": {
-                                "value": { "name": "i" },
-                                "type": "getter_variable"
-                              },
-                              "right": {
-                                "value": { "$numberInt": "1" },
-                                "type": "prodef_number"
-                              },
-                              "operator": "+"
-                            }
-                          }
-                        },
-                        "type": "getter_variable"
-                      }
-                    },
-                    "type": "getter_variable"
-                  },
-                  "upperBound": {
-                    "type": "expression",
-                    "value": {
-                      "left": {
-                        "value": { "name": "N" },
-                        "type": "getter_variable"
-                      },
-                      "right": {
-                        "value": { "$numberInt": "1" },
-                        "type": "prodef_number"
-                      },
-                      "operator": "-"
-                    }
-                  },
-                  "lowerBound": {
-                    "value": { "$numberInt": "1" },
-                    "type": "prodef_number"
-                  },
-                  "variableIterator": "i"
-                }
-              },
-              "right": {
-                "value": {
-                  "name": "Distances",
-                  "rowIndex": {
-                    "value": {
-                      "name": "city",
-                      "rowIndex": {
-                        "value": { "name": "N" },
-                        "type": "getter_variable"
-                      }
-                    },
-                    "type": "getter_variable"
-                  },
-                  "colIndex": {
-                    "value": {
-                      "name": "city",
-                      "rowIndex": {
-                        "value": { "$numberInt": "1" },
-                        "type": "prodef_number"
-                      }
-                    },
-                    "type": "getter_variable"
-                  }
-                },
-                "type": "getter_variable"
-              },
-              "operator": "+"
-            }
-          }
+          "weight": 1
         }
       ],
       "constraints": [],
+      "classes": [
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            },
+            {
+              "name": "Distance",
+              "symbol": "distance"
+            },
+            {
+              "name": "Large",
+              "symbol": "large"
+            }
+          ],
+          "name": "City",
+          "symbol": "city"
+        },
+      ],
       "objects": [
         {
           "attributes": [
@@ -1035,6 +941,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [0,4,5,1,8]
+            },
+            {
+              "attribute": "large",
+              "value": 25
             }
           ],
           "class": "city"
@@ -1048,6 +958,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [1,0,2,8,7]
+            },
+            {
+              "attribute": "large",
+              "value": 18
             }
           ],
           "class": "city"
@@ -1061,6 +975,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [6,4,0,9,1]
+            },
+            {
+              "attribute": "large",
+              "value": 30
             }
           ],
           "class": "city"
@@ -1074,6 +992,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [3,4,3,0,8]
+            },
+            {
+              "attribute": "large",
+              "value": 38
             }
           ],
           "class": "city"
@@ -1087,6 +1009,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [1,9,3,6,0]
+            },
+            {
+              "attribute": "large",
+              "value": 15
             }
           ],
           "class": "city"
@@ -1136,6 +1062,42 @@ export const getProblems = () => dispatch => {
             }
           ]
         },
+        {
+          "isFeasible": true,
+          "goalValues": [
+            {
+              "expression": "***",
+              "sense": "minimize",
+              "value": 6208,
+              "name": "***",
+              "weight": 1
+            }
+          ],
+          "variableValues": [
+            {
+              "symbol": "x",
+              "value": [
+                [0,2,4,1,0],
+                [0,6,3,0],
+                [0,1,5,7,3,0],
+              ],
+              "within": "integers",
+              "name": "routes",
+              "range": {
+                "lowerBound": "-Infinity",
+                "upperBound": "Infinity"
+              },
+              "shape": {
+                "type": "matrix",
+                "isPermutation": true,
+                "size": {
+                  "fixed": false,
+                  "value": "N"
+                }
+              }
+            }
+          ]
+        }
       ],
       "computingTime": 5015
     },
@@ -1147,7 +1109,26 @@ export const getProblems = () => dispatch => {
       "variables": [],
       "goals": [],
       "constraints": [],
-      "classes": [],
+      "classes": [
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            },
+            {
+              "name": "Distance",
+              "symbol": "distance"
+            },
+            {
+              "name": "Large",
+              "symbol": "large"
+            }
+          ],
+          "name": "City",
+          "symbol": "city"
+        },
+      ],
       "objects": [
         {
           "attributes": [
@@ -1158,6 +1139,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [0,1,2,4,5,4,6,4,9,8]
+            },
+            {
+              "attribute": "large",
+              "value": 20
             }
           ],
           "class": "city"
@@ -1171,6 +1156,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [2,0,4,6,6,5,4,9,8,5]
+            },
+            {
+              "attribute": "large",
+              "value": 25
             }
           ],
           "class": "city"
@@ -1184,6 +1173,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [2,4,0,6,6,5,4,9,8,5]
+            },
+            {
+              "attribute": "large",
+              "value": 30
             }
           ],
           "class": "city"
@@ -1197,6 +1190,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [2,4,6,0,6,5,4,9,8,5]
+            },
+            {
+              "attribute": "large",
+              "value": 15
             }
           ],
           "class": "city"
@@ -1210,6 +1207,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [2,4,6,6,0,5,4,9,8,5]
+            },
+            {
+              "attribute": "large",
+              "value": 35
             }
           ],
           "class": "city"
@@ -1223,6 +1224,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [2,4,6,6,5,0,4,9,8,5]
+            },
+            {
+              "attribute": "large",
+              "value": 40
             }
           ],
           "class": "city"
@@ -1236,6 +1241,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [2,4,6,6,5,4,0,9,8,5]
+            },
+            {
+              "attribute": "large",
+              "value": 20
             }
           ],
           "class": "city"
@@ -1249,6 +1258,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [2,4,6,6,5,4,9,0,8,5]
+            },
+            {
+              "attribute": "large",
+              "value": 30
             }
           ],
           "class": "city"
@@ -1262,6 +1275,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [2,4,6,6,5,4,9,8,0,5]
+            },
+            {
+              "attribute": "large",
+              "value": 27
             }
           ],
           "class": "city"
@@ -1275,6 +1292,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "distance",
               "value": [2,4,6,6,5,4,9,8,5,0]
+            },
+            {
+              "attribute": "large",
+              "value": 12
             }
           ],
           "class": "city"
@@ -1284,14 +1305,8 @@ export const getProblems = () => dispatch => {
     "lastUpdate": 1605820754703
   }
   
-  const problem4 = {
-    problem: {
-      name: "Test4",
-    },
-    result: 4,
-  }
 
-  let data = [backpackSimple, backpackComplex, tsp, vrp, problem4]
+  let data = [backpackSimple, backpackComplex, tsp, vrp]
 
   dispatch({
     type: "setProblem",
