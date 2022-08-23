@@ -44,11 +44,15 @@ const IntegerMatrix = (props) => {
   let objectsContent = objects[0]
 
   // TODO: Usar colores random???
-  const colorTask = objectsContent.map(() => {
-    return '#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
+  // Add 20 colors
+  const colorTask = [
+    "#FF6666","#FFB266","#FFFF66","#B2FF66","#66FFB2","#66FFFF","#66B2FF","#B266FF","#FF66FF","#FF66B2",
+    "#FF0000","#FF8000","#FFFF00","#80FF00","#00FF80","#00FFFF","#0080FF","#8000FF","#FF00FF","#FF0080",
+    "#990000","#994C00","#999900","#4C9900","#00994C","#009999","#004C99","#4C0099","#990099","#99004C",
+  ];
+  objectsContent.forEach(() => {
+    colorTask.push('#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6))
   })
-  // Colores estaticos???
-  // const colorTask = []
 
   const allAttributes = objectsContent[0].attributes.map(attr => attr.attribute).filter(attribute => attribute !== "name")
 
