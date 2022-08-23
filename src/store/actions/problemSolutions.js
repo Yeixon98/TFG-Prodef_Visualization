@@ -1382,6 +1382,10 @@ export const getProblems = () => dispatch => {
             {
               "name": "Name",
               "symbol": "name"
+            },
+            {
+              "name": "Data",
+              "symbol": "data"
             }
           ],
           "name": "Task",
@@ -1466,6 +1470,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "name",
               "value": "Task 1"
+            },
+            {
+              "attribute": "data",
+              "value": 12
             }
           ],
           "class": "task"
@@ -1475,6 +1483,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "name",
               "value": "Task 2"
+            },
+            {
+              "attribute": "data",
+              "value": 20
             }
           ],
           "class": "task"
@@ -1484,6 +1496,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "name",
               "value": "Task 3"
+            },
+            {
+              "attribute": "data",
+              "value": 18
             }
           ],
           "class": "task"
@@ -1493,6 +1509,10 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "name",
               "value": "Task 4"
+            },
+            {
+              "attribute": "data",
+              "value": 50
             }
           ],
           "class": "task"
@@ -1502,7 +1522,224 @@ export const getProblems = () => dispatch => {
     "lastUpdate": 1605800054703
   }
 
-  let data = [backpackSimple, backpackComplex, tsp, vrp, processingTask]
+  const  assignment3D = {
+    "state": "resolved",
+    "solution": {
+      "results": [
+        {
+          "isFeasible": true,
+          "goalValues": [
+            {
+              "expression": "***",
+              "sense": "minimize",
+              "value": 127,
+              "name": "***",
+              "weight": 1
+            }
+          ],
+          "variableValues": [
+            {
+              "symbol": "x",
+              "value": [
+                [-1,1,-1,2,2],
+                [0,2,0,3,-1],
+                [1,0,-1,-1,3],
+              ],
+              "within": "integers",
+              "name": "Assignment teacher, classroom, subject",
+              "range": {
+                "lowerBound": "-Infinity",
+                "upperBound": "Infinity"
+              },
+              "shape": {
+                "type": "matrix",
+                "isPermutation": false,
+                "size": {
+                  "fixed": false,
+                  "value": "N"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "computingTime": 5015
+    },
+    "stateMessage": "The problem was successfully solved",
+    "problem": {
+      "name": "Assignment 3D",
+      "description": "Optional description (optimal: 130)",
+      "parameters": [],
+      "variables": [],
+      "goals": [],
+      "constraints": [],
+      "classes": [
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            }
+          ],
+          "name": "Teacher",
+          "symbol": "teacher"
+        },
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            }
+          ],
+          "name": "Classroom",
+          "symbol": "classroom"
+        },
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            },
+            {
+              "name": "Data",
+              "symbol": "data"
+            }
+          ],
+          "name": "Subject",
+          "symbol": "subject"
+        },
+      ],
+      "objects": [
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Teacher 1"
+            }
+          ],
+          "class": "teacher"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Teacher 2"
+            }
+          ],
+          "class": "teacher"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Teacher 3"
+            }
+          ],
+          "class": "teacher"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Classroom 1"
+            }
+          ],
+          "class": "classroom"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Classroom 2"
+            }
+          ],
+          "class": "classroom"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Classroom 3"
+            }
+          ],
+          "class": "classroom"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Classroom 4"
+            }
+          ],
+          "class": "classroom"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Classroom 5"
+            }
+          ],
+          "class": "classroom"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subject 1"
+            },
+            {
+              "attribute": "data",
+              "value": 12
+            }
+          ],
+          "class": "subject"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subject 2"
+            },
+            {
+              "attribute": "data",
+              "value": 20
+            }
+          ],
+          "class": "subject"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subject 3"
+            },
+            {
+              "attribute": "data",
+              "value": 18
+            }
+          ],
+          "class": "subject"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Subject 4"
+            },
+            {
+              "attribute": "data",
+              "value": 50
+            }
+          ],
+          "class": "subject"
+        },
+      ]
+    },
+    "lastUpdate": 1605800054703
+  }
+
+  let data = [backpackSimple, backpackComplex, tsp, vrp, processingTask, assignment3D]
 
   dispatch({
     type: "setProblem",

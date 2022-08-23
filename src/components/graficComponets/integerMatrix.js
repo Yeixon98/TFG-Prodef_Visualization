@@ -1,8 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import SelectStyle from "components/selectStyle";
+
+import { rgbToHex } from "../../store/actions/problemSolutions"
 
 const IntegerMatrix = (props) => {
 
@@ -12,7 +14,43 @@ const IntegerMatrix = (props) => {
   const variableValue = problem.solution.results[selectResult].variableValues[selectVariable]
   const attrStyle = useSelector(store => store.problemSolutions.attributeStyle)
 
-  const allAttributes = []
+  const lengthRow = variableValue.value.length
+  const lengthCol = variableValue.value[0].length
+  const allClass = problem.problem.classes.map((_class) => {
+    return _class.symbol
+  })
+  const objects = allClass.map(symbol => {
+    return problem.problem.objects.filter(object => object.class === symbol)
+  })
+
+  let objectsRow = []
+  objects.forEach((object, index) => {
+    if (object.length === lengthRow) {
+      objectsRow = object
+      objects.splice(index, 1)
+      return
+    }
+  });
+  
+  let objectsCol = []
+  objects.forEach((object, index) => {
+    if (object.length === lengthCol) {
+      objectsCol = object
+      objects.splice(index, 1)
+      return
+    }
+  });
+
+  let objectsContent = objects[0]
+
+  // TODO: Usar colores random???
+  const colorTask = objectsContent.map(() => {
+    return '#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
+  })
+  // Colores estaticos???
+  // const colorTask = []
+
+  const allAttributes = objectsContent[0].attributes.map(attr => attr.attribute).filter(attribute => attribute !== "name")
 
   return (
     <Grid container justifyContent="center" style={{marginTop: 20}}>
@@ -30,19 +68,115 @@ const IntegerMatrix = (props) => {
         }}
       >
         <table>
-          <td>
-            <tr>Variable Name: </tr>
-            <tr>Variable Symbol: </tr>
-          </td>
-          <td>
-            <tr>{variableValue.name}</tr>
-            <tr>{variableValue.symbol.toUpperCase()}</tr>
-          </td>
+          <tr>
+            <td>Variable Name: </td>
+            <td>{variableValue.name}</td>
+          </tr>
+          <tr>
+            <td>Variable Symbol: </td>  
+            <td>{variableValue.symbol.toUpperCase()}</td>
+          </tr>
         </table>
       </Grid>
 
       <Grid item xs={12} container justifyContent="center" >
-        CONTENT
+        <table
+          style={{
+            borderTop: "2px solid #5858c4",
+            borderRight: "2px solid #5858c4",
+            borderCollapse: "collapse",
+            backgroundColor: "#cbcbff",
+            color: "black"
+          }}
+        >
+          {
+            variableValue.value.map((valueRow, indexRow) => {
+              return (
+                <tr>
+                  {/* Machine */}
+                  <td
+                    style={{
+                      padding: 7,
+                      border: "2px solid #5858c4",
+                    }}
+                  >
+                    {objectsRow[indexRow].attributes[0].value}
+                  </td>
+                  {
+                    valueRow.map(valueCol => {
+                      if (valueCol > -1) {
+                        // Configurar el estilo dinamico aqui
+                        const attributes = {}
+                        objectsContent[valueCol].attributes.forEach(value => {
+                          attributes[value.attribute] = value.value
+                        })
+  
+                        let useWidth = attrStyle['width'] === 'default' ? 'auto' : attributes[attrStyle['width']] + 40
+                        let useHeight = attrStyle['height'] === 'default' ? 'auto' : attributes[attrStyle['height']] + 20
+                        let useColor = attrStyle['color'] === 'default' ? 0 : 255 - attributes[attrStyle['color']]
+
+                        return (
+                          <td
+                          style={{
+                            borderBottom: "2px solid #5858c4",
+                            backgroundColor: useHeight === 'auto' ? useColor === 0 ? colorTask[valueCol % colorTask.length] : rgbToHex(useColor, useColor, useColor) : "inherit",
+                          }}
+                          >
+                            <Typography
+                              // Aplicar el estilo dinamico aqui
+                              style={{
+                                padding: 5,
+                                backgroundColor: useHeight !== 'auto' ? useColor === 0 ? colorTask[valueCol % colorTask.length] : rgbToHex(useColor, useColor, useColor) : 'inherit',
+                                margin: useHeight !== 'auto' ? "1px -2px 1px 0" : 0,
+                                width: useWidth,
+                                height: useHeight,
+                                color: useColor === 0 ? '#000000' : useColor <= 128 ? 'white' : 'black',
+                              }}
+                            >
+                              {objectsContent[valueCol].attributes[0].value}
+                            </Typography>
+                          </td>
+                        )
+                      } else {
+                        return (
+                          <td
+                            style={{
+                              borderBottom: "2px solid #5858c4"
+                            }}
+                          ></td>
+                        )
+                      }
+                    })
+                  }
+                </tr>
+              )
+            })
+          }
+          <tr>
+            <td
+              style={{
+                backgroundColor: "white",
+                borderLeft: "2px solid white",
+                borderBottom: "1px solid white"
+              }}
+            ></td>
+            {
+              objectsCol.map(valueCol => {
+                return (
+                  // Time
+                  <td
+                    style={{
+                      padding: 7,
+                      border: "2px solid #5858c4",
+                    }}
+                  >
+                    {valueCol.attributes[0].value}
+                  </td>
+                )
+              })
+            }
+          </tr>
+      </table>
       </Grid>
 
     </Grid>
