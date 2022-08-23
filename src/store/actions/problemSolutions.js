@@ -1305,8 +1305,204 @@ export const getProblems = () => dispatch => {
     "lastUpdate": 1605820754703
   }
   
+  const  processingTask = {
+    "state": "resolved",
+    "solution": {
+      "results": [
+        {
+          "isFeasible": true,
+          "goalValues": [
+            {
+              "expression": "***",
+              "sense": "minimize",
+              "value": 127,
+              "name": "***",
+              "weight": 1
+            }
+          ],
+          "variableValues": [
+            {
+              "symbol": "x",
+              "value": [
+                [-1,-1,-1,2,2],
+                [0,0,0,3,-1],
+                [1,1,-1,-1,3],
+              ],
+              "within": "integers",
+              "name": "Processing time of the task",
+              "range": {
+                "lowerBound": "-Infinity",
+                "upperBound": "Infinity"
+              },
+              "shape": {
+                "type": "matrix",
+                "isPermutation": false,
+                "size": {
+                  "fixed": false,
+                  "value": "N"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "computingTime": 5015
+    },
+    "stateMessage": "The problem was successfully solved",
+    "problem": {
+      "name": "The Job Shop Problem",
+      "description": "Optional description (optimal: 130)",
+      "parameters": [],
+      "variables": [],
+      "goals": [],
+      "constraints": [],
+      "classes": [
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            }
+          ],
+          "name": "Machine",
+          "symbol": "machine"
+        },
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            }
+          ],
+          "name": "Time",
+          "symbol": "time"
+        },
+        {
+          "attributes": [
+            {
+              "name": "Name",
+              "symbol": "name"
+            }
+          ],
+          "name": "Task",
+          "symbol": "task"
+        },
+      ],
+      "objects": [
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Machine 1"
+            }
+          ],
+          "class": "machine"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Machine 2"
+            }
+          ],
+          "class": "machine"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Machine 3"
+            }
+          ],
+          "class": "machine"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Time 1"
+            }
+          ],
+          "class": "time"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Time 2"
+            }
+          ],
+          "class": "time"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Time 3"
+            }
+          ],
+          "class": "time"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Time 4"
+            }
+          ],
+          "class": "time"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Time 5"
+            }
+          ],
+          "class": "time"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Task 1"
+            }
+          ],
+          "class": "task"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Task 2"
+            }
+          ],
+          "class": "task"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Task 3"
+            }
+          ],
+          "class": "task"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Task 4"
+            }
+          ],
+          "class": "task"
+        },
+      ]
+    },
+    "lastUpdate": 1605800054703
+  }
 
-  let data = [backpackSimple, backpackComplex, tsp, vrp]
+  let data = [backpackSimple, backpackComplex, tsp, vrp, processingTask]
 
   dispatch({
     type: "setProblem",
