@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Grid, Tooltip, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
 
 import SelectStyle from "components/selectStyle";
@@ -44,7 +44,7 @@ const PermutationVector = (props) => {
         </table>
       </Grid>
 
-      <Grid item xs={10} container justifyContent="center" spacing={2}>
+      <Grid item container xs={11} justifyContent="center">
         {
           variableValue.value.map((cityIndex, index) => {
             const attributes = {}
@@ -59,8 +59,8 @@ const PermutationVector = (props) => {
             let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']] % 100
 
             return (
-              <Grid item container xs={2} wrap="nowrap" justifyContent="space-around" alignItems="center">
-                <Grid item zeroMinWidth
+              <Grid item container xs wrap="nowrap" justifyContent="space-around" alignItems="center">
+                <Grid item
                   style={{
                     paddingRight: 8
                   }}
@@ -68,13 +68,13 @@ const PermutationVector = (props) => {
                   {/* Style Name */}
                   <Typography noWrap
                     style={{
-                      border: '1px solid blue',
+                      border: '1px solid #6afc7d',
                       borderRadius: 3,
                       padding: 3,
                       width: useWidth,
                       height: useHeight,
                       color: useColor === 0 ? '#000000' : useColor <= 128 ? 'white' : 'black',
-                      backgroundColor: useColor === 0 ? "lightblue" : perc2color(useColor),
+                      backgroundColor: useColor === 0 ? "#bbffc4" : perc2color(useColor),
                       textAlign: "center"
                     }}
                   >
@@ -88,19 +88,23 @@ const PermutationVector = (props) => {
                   }}
                 >
                   {/* Work in Arrow */}
-                  {variableValue.value.length === index + 1 ? "" : 
-                    <Tooltip
-                      title = {"Distance: " + nextCityDistance}
-                      arrow
-                      placement="top"
-                    >
+                  {variableValue.value.length === index + 1 ? <></> : 
+                    <Grid>
+                      <div
+                        style={{
+                          textAlign: "center",
+                          marginBottom: "-15px"
+                        }}
+                      >
+                        {nextCityDistance}
+                      </div>
                       <TrendingFlatRoundedIcon
                         fontSize='large'
                         style={{
-                          color: "#99A3A4",
+                          color: "#575757",
                         }}
                       />
-                    </Tooltip>
+                    </Grid>
                   }
                 </Grid>
 

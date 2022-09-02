@@ -8,7 +8,7 @@ import SelectStyle from "components/selectStyle";
 const useStyles = makeStyles((theme) => ({
   containerBinaryAll: {
     padding: 5,
-    border: '3px solid #6741ff',
+    border: '3px solid #acacfc',
     borderRadius: 3,
     backgroundColor: '#9595ff'
   },

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Divider, Grid, Tooltip, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
 
 import SelectStyle from "components/selectStyle";
@@ -42,11 +42,29 @@ const PermutationMatrix = (props) => {
         </table>
       </Grid>
 
-      <Grid item xs={10} container justifyContent="center" spacing={2}>
+      <Grid item xs={10} container justifyContent="center">
         {
-          variableValue.value.map((vehicleRoute) => {
+          variableValue.value.map((vehicleRoute, indexVehicle) => {
             return (
-              <Grid item container>
+              <Grid item container
+                style={{
+                  border: "2px blue solid",
+                  borderRadius: 5,
+                  marginBottom: 20,
+                  backgroundColor: "#acacfc"
+                }}
+              >
+                <Grid item container xs = {12} justifyContent="center"
+                  style={{
+                    borderBottom: "2px blue solid"
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                  >
+                    Vehicle {indexVehicle + 1}
+                  </Typography>
+                </Grid>
                 <Grid item container xs={12}>
                   {
                     vehicleRoute.map((cityIndex, index) => {
@@ -62,22 +80,18 @@ const PermutationMatrix = (props) => {
                       let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']] % 100
           
                       return (
-                        <Grid item container xs={2} wrap="nowrap" justifyContent="space-around" alignItems="center">
-                          <Grid item zeroMinWidth
-                            style={{
-                              paddingRight: 8
-                            }}
-                          >
+                        <Grid item container xs wrap="nowrap" justifyContent="space-around" alignItems="center">
+                          <Grid item zeroMinWidth>
                             {/* Style Name */}
                             <Typography noWrap
                               style={{
-                                border: '1px solid blue',
+                                border: '1px solid #6afc7d',
                                 borderRadius: 3,
                                 padding: 3,
                                 width: useWidth,
                                 height: useHeight,
                                 color: useColor === 0 ? '#000000' : useColor <= 128 ? 'white' : 'black',
-                                backgroundColor: useColor === 0 ? "lightblue" : perc2color(useColor),
+                                backgroundColor: useColor === 0 ? "#bbffc4" : perc2color(useColor),
                                 textAlign: "center"
                               }}
                             >
@@ -85,25 +99,25 @@ const PermutationMatrix = (props) => {
                             </Typography>
                           </Grid>
           
-                          <Grid item
-                            style={{
-                              paddingLeft: 8
-                            }}
-                          >
+                          <Grid item>
                             {/* Work in Arrow */}
-                            {vehicleRoute.length === index + 1 ? "" : 
-                              <Tooltip
-                                title = {"Distance: " + nextCityDistance}
-                                arrow
-                                placement="top"
-                              >
+                            {vehicleRoute.length === index + 1 ? <></> : 
+                              <Grid>
+                                <div
+                                  style={{
+                                    textAlign: "center",
+                                    marginBottom: "-15px"
+                                  }}
+                                >
+                                  {nextCityDistance}
+                                </div>
                                 <TrendingFlatRoundedIcon
                                   fontSize='large'
                                   style={{
-                                    color: "#99A3A4",
+                                    color: "#575757",
                                   }}
                                 />
-                              </Tooltip>
+                              </Grid>
                             }
                           </Grid>
           
@@ -111,13 +125,6 @@ const PermutationMatrix = (props) => {
                       )
                     })
                   }
-                </Grid>
-                <Grid item xs={12}
-                  style={{
-                    margin: "5px 0"
-                  }}
-                >
-                  <Divider/>
                 </Grid>
               </Grid>
             )

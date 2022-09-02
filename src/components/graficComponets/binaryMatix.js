@@ -54,7 +54,7 @@ const BinaryMatrix = (props) => {
       <Grid item xs={12} container justifyContent="center" >
         {variableValue.value.map((resultRow, row) => {
           return (
-            <Grid item container xs={3} direction='column'style={{borderRadius: 5,border: '2px solid blue',margin: '0 5px', backgroundColor: '#9595ff', marginBottom: 15}}>
+            <Grid item container xs={3} direction='column'style={{borderRadius: 5,border: '2px solid blue',margin: '0 5px', backgroundColor: '#acacfc', marginBottom: 15}}>
 
               <Grid item container justifyContent="center" alignItems="center"
                 style={{

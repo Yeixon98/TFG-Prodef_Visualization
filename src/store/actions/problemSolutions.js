@@ -831,7 +831,12 @@ export const getProblems = () => dispatch => {
                 2,
                 4,
                 1,
-                3
+                3,
+                5,
+                8,
+                6,
+                9,
+                7
               ],
               "within": "integers",
               "name": "city",
@@ -893,7 +898,7 @@ export const getProblems = () => dispatch => {
     },
     "stateMessage": "The problem was successfully solved",
     "problem": {
-      "name": "TSP",
+      "name": "Problem TSP",
       "description": "Optional description (optimal: 130)",
       "parameters": [],
       "variables": [],
@@ -924,11 +929,11 @@ export const getProblems = () => dispatch => {
           "attributes": [
             {
               "attribute": "name",
-              "value": "City 1 Very Long Name"
+              "value": "City 1"
             },
             {
               "attribute": "distance",
-              "value": [0,4,5,1,8]
+              "value": [0,4,5,1,8,6,1,8,4,3]
             },
             {
               "attribute": "large",
@@ -945,7 +950,7 @@ export const getProblems = () => dispatch => {
             },
             {
               "attribute": "distance",
-              "value": [1,0,2,8,7]
+              "value": [1,0,2,8,7,6,1,8,4,3]
             },
             {
               "attribute": "large",
@@ -962,7 +967,7 @@ export const getProblems = () => dispatch => {
             },
             {
               "attribute": "distance",
-              "value": [6,4,0,9,1]
+              "value": [6,4,0,9,1,6,1,8,4,3]
             },
             {
               "attribute": "large",
@@ -979,7 +984,7 @@ export const getProblems = () => dispatch => {
             },
             {
               "attribute": "distance",
-              "value": [3,4,3,0,8]
+              "value": [3,4,3,0,8,6,1,8,4,3]
             },
             {
               "attribute": "large",
@@ -996,7 +1001,92 @@ export const getProblems = () => dispatch => {
             },
             {
               "attribute": "distance",
-              "value": [1,9,3,6,0]
+              "value": [1,9,3,6,0,6,1,8,4,3]
+            },
+            {
+              "attribute": "large",
+              "value": 15
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 6"
+            },
+            {
+              "attribute": "distance",
+              "value": [1,9,3,6,6,0,1,8,4,3]
+            },
+            {
+              "attribute": "large",
+              "value": 15
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 7"
+            },
+            {
+              "attribute": "distance",
+              "value": [1,9,3,6,6,1,0,8,4,3]
+            },
+            {
+              "attribute": "large",
+              "value": 15
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 8"
+            },
+            {
+              "attribute": "distance",
+              "value": [1,9,3,6,6,1,8,0,4,3]
+            },
+            {
+              "attribute": "large",
+              "value": 15
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 9"
+            },
+            {
+              "attribute": "distance",
+              "value": [1,9,3,6,6,1,8,4,0,3]
+            },
+            {
+              "attribute": "large",
+              "value": 15
+            }
+          ],
+          "class": "city"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "City 10"
+            },
+            {
+              "attribute": "distance",
+              "value": [1,9,3,6,6,1,8,4,0]
             },
             {
               "attribute": "large",
@@ -1736,7 +1826,6 @@ export const getProblems = () => dispatch => {
 }
 
 export const addProblem = (problem) => dispatch => {
-  dispatch(setProblemLoading())
   dispatch({
     type: "addProblem",
     payload: problem,
@@ -1782,6 +1871,7 @@ export const perc2color = (perc) => {
 }
 
 export const readFile = () => dispatch => {
+  dispatch(setProblemLoading())
   let fileToLoad = document.getElementById("FileUpload").files[0];
   let fileReader = new FileReader();
   

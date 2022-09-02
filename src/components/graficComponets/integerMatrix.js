@@ -159,7 +159,7 @@ const IntegerMatrix = (props) => {
               style={{
                 backgroundColor: "white",
                 borderLeft: "2px solid white",
-                borderBottom: "1px solid white"
+                borderBottom: "2px solid white"
               }}
             ></td>
             {

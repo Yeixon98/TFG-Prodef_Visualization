@@ -68,7 +68,7 @@ const NavBar = () => {
 
           <Grid item>
             <input type="file" id="FileUpload" hidden onChange={() => {dispatch(readFile())}}/>
-            <label for="FileUpload" className={classes.uploadBottom}>Upload Solution</label>
+            <label htmlFor="FileUpload" className={classes.uploadBottom}>Upload</label>
           </Grid>
         </Grid>
       </Toolbar>
