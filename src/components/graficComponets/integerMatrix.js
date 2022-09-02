@@ -4,7 +4,7 @@ import { Grid, Typography } from "@material-ui/core";
 
 import SelectStyle from "components/selectStyle";
 
-import { rgbToHex } from "../../store/actions/problemSolutions"
+import { perc2color } from "../../store/actions/problemSolutions"
 
 const IntegerMatrix = (props) => {
 
@@ -72,14 +72,12 @@ const IntegerMatrix = (props) => {
         }}
       >
         <table>
-          <tr>
-            <td>Variable Name: </td>
-            <td>{variableValue.name}</td>
-          </tr>
-          <tr>
-            <td>Variable Symbol: </td>  
-            <td>{variableValue.symbol.toUpperCase()}</td>
-          </tr>
+          <td>
+            <tr>Variable Name: </tr>
+          </td>
+          <td>
+            <tr>{variableValue.name}</tr>
+          </td>
         </table>
       </Grid>
 
@@ -115,22 +113,22 @@ const IntegerMatrix = (props) => {
                           attributes[value.attribute] = value.value
                         })
   
-                        let useWidth = attrStyle['width'] === 'default' ? 'auto' : attributes[attrStyle['width']] + 40
-                        let useHeight = attrStyle['height'] === 'default' ? 'auto' : attributes[attrStyle['height']] + 20
-                        let useColor = attrStyle['color'] === 'default' ? 0 : 255 - attributes[attrStyle['color']]
+                        let useWidth = attrStyle['width'] === 'default' ? 'auto' : attributes[attrStyle['width']] * 1.5 + 40
+                        let useHeight = attrStyle['height'] === 'default' ? 'auto' : attributes[attrStyle['height']] * 1.5 + 20
+                        let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']] % 100
 
                         return (
                           <td
                           style={{
                             borderBottom: "2px solid #5858c4",
-                            backgroundColor: useHeight === 'auto' ? useColor === 0 ? colorTask[valueCol % colorTask.length] : rgbToHex(useColor, useColor, useColor) : "inherit",
+                            backgroundColor: useHeight === 'auto' ? useColor === 0 ? colorTask[valueCol % colorTask.length] : perc2color(useColor) : "inherit",
                           }}
                           >
                             <Typography
                               // Aplicar el estilo dinamico aqui
                               style={{
                                 padding: 5,
-                                backgroundColor: useHeight !== 'auto' ? useColor === 0 ? colorTask[valueCol % colorTask.length] : rgbToHex(useColor, useColor, useColor) : 'inherit',
+                                backgroundColor: useHeight !== 'auto' ? useColor === 0 ? colorTask[valueCol % colorTask.length] : perc2color(useColor) : 'inherit',
                                 margin: useHeight !== 'auto' ? "1px -2px 1px 0" : 0,
                                 width: useWidth,
                                 height: useHeight,

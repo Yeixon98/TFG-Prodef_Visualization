@@ -5,7 +5,7 @@ import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
 
 import SelectStyle from "components/selectStyle";
 
-import { rgbToHex } from "../../store/actions/problemSolutions"
+import { perc2color } from "../../store/actions/problemSolutions"
 
 const PermutationVector = (props) => {
 
@@ -37,11 +37,9 @@ const PermutationVector = (props) => {
         <table>
           <td>
             <tr>Variable Name: </tr>
-            <tr>Variable Symbol: </tr>
           </td>
           <td>
             <tr>{variableValue.name}</tr>
-            <tr>{variableValue.symbol}</tr>
           </td>
         </table>
       </Grid>
@@ -58,7 +56,7 @@ const PermutationVector = (props) => {
             
             let useWidth = attrStyle['width'] === 'default' ? '' : attributes[attrStyle['width']] + 30
             let useHeight = attrStyle['height'] === 'default' ? '' : attributes[attrStyle['height']] + 30
-            let useColor = attrStyle['color'] === 'default' ? 0 : 255 - attributes[attrStyle['color']]
+            let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']] % 100
 
             return (
               <Grid item container xs={2} wrap="nowrap" justifyContent="space-around" alignItems="center">
@@ -76,7 +74,7 @@ const PermutationVector = (props) => {
                       width: useWidth,
                       height: useHeight,
                       color: useColor === 0 ? '#000000' : useColor <= 128 ? 'white' : 'black',
-                      backgroundColor: useColor === 0 ? "lightblue" : rgbToHex(useColor, useColor, useColor),
+                      backgroundColor: useColor === 0 ? "lightblue" : perc2color(useColor),
                       textAlign: "center"
                     }}
                   >

@@ -59,11 +59,9 @@ const BinaryVector = (props) => {
         <table>
           <td>
             <tr>Variable Name: </tr>
-            <tr>Variable Symbol: </tr>
           </td>
           <td>
             <tr>{variableValue.name}</tr>
-            <tr>{variableValue.symbol.toUpperCase()}</tr>
           </td>
         </table>
       </Grid>

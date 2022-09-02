@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import SelectStyle from "components/selectStyle";
 
-import { rgbToHex } from "../../store/actions/problemSolutions"
+import { perc2color } from "../../store/actions/problemSolutions"
 
 const BinaryMatrix = (props) => {
   const problem = props.problem
@@ -44,11 +44,9 @@ const BinaryMatrix = (props) => {
         <table>
           <td>
             <tr>Variable Name: </tr>
-            <tr>Variable Symbol: </tr>
           </td>
           <td>
             <tr>{variableValue.name}</tr>
-            <tr>{variableValue.symbol.toUpperCase()}</tr>
           </td>
         </table>
       </Grid>
@@ -56,7 +54,7 @@ const BinaryMatrix = (props) => {
       <Grid item xs={12} container justifyContent="center" >
         {variableValue.value.map((resultRow, row) => {
           return (
-            <Grid item container xs={3} direction='column'style={{borderRadius: 5,border: '2px solid blue',margin: '0 5px', backgroundColor: '#9595ff'}}>
+            <Grid item container xs={3} direction='column'style={{borderRadius: 5,border: '2px solid blue',margin: '0 5px', backgroundColor: '#9595ff', marginBottom: 15}}>
 
               <Grid item container justifyContent="center" alignItems="center"
                 style={{
@@ -81,7 +79,7 @@ const BinaryMatrix = (props) => {
 
                     let useWidth = attrStyle['width'] === 'default' ? 'auto' : attributes[attrStyle['width']]
                     let useHeight = attrStyle['height'] === 'default' ? 'auto' : attributes[attrStyle['height']]
-                    let useColor = attrStyle['color'] === 'default' ? 0 : 255 - attributes[attrStyle['color']]
+                    let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']] % 100
 
                     return (
                       <Grid item container justifyContent="center" alignItems="center"
@@ -89,7 +87,7 @@ const BinaryMatrix = (props) => {
                           width: useWidth,
                           height: useHeight,
                           padding: '5px',
-                          backgroundColor: useColor === 0 ? '#bbffc4' : rgbToHex(useColor, useColor, useColor),
+                          backgroundColor: useColor === 0 ? '#bbffc4' : perc2color(useColor),
                           color: useColor === 0 ? '#000000' : useColor <= 128 ? 'white' : 'black',
                           margin: '3px',
                           borderRadius: 3,

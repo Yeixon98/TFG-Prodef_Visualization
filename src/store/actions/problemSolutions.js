@@ -41,6 +41,9 @@ export const getProblems = () => dispatch => {
                 1,
                 1,
                 1,
+                0,
+                0,
+                0,
               ],
               "within": "integers",
               "name": "Items in the knapsack",
@@ -94,6 +97,9 @@ export const getProblems = () => dispatch => {
                 0,
                 0,
                 0,
+                1,
+                1,
+                1,
               ],
               "within": "integers",
               "name": "Items in the knapsack",
@@ -183,6 +189,23 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "name",
               "value": "Item 3"
+            },
+            {
+              "attribute": "value",
+              "value": 24
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 4"
             },
             {
               "attribute": "value",
@@ -483,6 +506,40 @@ export const getProblems = () => dispatch => {
             }
           ],
           "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 22"
+            },
+            {
+              "attribute": "value",
+              "value": 24
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 23"
+            },
+            {
+              "attribute": "value",
+              "value": 24
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
         }
       ]
     },
@@ -510,7 +567,8 @@ export const getProblems = () => dispatch => {
               "value": [
                 [1,0,0,0,0,1],
                 [0,1,0,0,1,0],
-                [0,0,1,1,0,0]
+                [0,0,0,1,0,0],
+                [0,0,1,0,0,0]
               ],
               "within": "integers",
               "name": "Assigning a teacher to a subject",
@@ -630,6 +688,15 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "name",
               "value": "Profesor 3"
+            }
+          ],
+          "class": "profesor"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Profesor 4"
             }
           ],
           "class": "profesor"
@@ -1245,9 +1312,9 @@ export const getProblems = () => dispatch => {
             {
               "symbol": "x",
               "value": [
-                [-1,-1,-1,2,2],
-                [0,0,0,3,-1],
-                [1,1,-1,-1,3],
+                [-1,0,-1,2,-1],
+                [0,1,0,3,-1],
+                [1,-1,2,-1,3],
               ],
               "within": "integers",
               "name": "Processing time of the task",
@@ -1660,6 +1727,8 @@ export const getProblems = () => dispatch => {
     "lastUpdate": 1605800054703
   }
 
+
+
   let data = [backpackSimple, backpackComplex, tsp, vrp, processingTask, assignment3D]
 
   dispatch({
@@ -1694,4 +1763,18 @@ const setProblemLoading = () => {
 
 export const rgbToHex = (r, g, b) => {
   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+
+export const perc2color = (perc) => {
+	var r, g, b = 0;
+	if(perc < 50) {
+		r = 255;
+		g = Math.round(5.1 * perc);
+	}
+	else {
+		g = 255;
+		r = Math.round(510 - 5.10 * perc);
+	}
+	var h = r * 0x10000 + g * 0x100 + b * 0x1;
+	return '#' + ('000000' + h.toString(16)).slice(-6);
 }
