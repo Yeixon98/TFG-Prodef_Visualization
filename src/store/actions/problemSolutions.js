@@ -10,7 +10,7 @@ export const getProblems = () => dispatch => {
           "isFeasible": true,
           "goalValues": [
             {
-              "expression": "sum x[i]*item[i].value over i=(1:N)",
+              "expression": "***",
               "sense": "maximize",
               "value": 130,
               "name": "Maximize the value of the items",
@@ -26,7 +26,6 @@ export const getProblems = () => dispatch => {
                 1,
                 1,
                 0,
-                1,
                 1,
                 1,
                 1,
@@ -64,7 +63,7 @@ export const getProblems = () => dispatch => {
           "isFeasible": false,
           "goalValues": [
             {
-              "expression": "sum x[i]*item[i].value over i=(1:N)",
+              "expression": "***",
               "sense": "maximize",
               "value": 130,
               "name": "Maximize the value of the items",
@@ -79,7 +78,6 @@ export const getProblems = () => dispatch => {
                 1,
                 1,
                 1,
-                0,
                 0,
                 0,
                 0,
@@ -121,51 +119,10 @@ export const getProblems = () => dispatch => {
     "problem": {
       "name": "Basic binary knapsack problem",
       "description": "Optional description (optimal: 130)",
-      "parameters": [
-        {
-          "symbol": "N",
-          "value": 21,
-          "name": "Number of items"
-        },
-        {
-          "symbol": "MaxWeight",
-          "value": 80,
-          "name": "Maximum weight"
-        }
-      ],
-      "variables": [
-        {
-          "name": "Items in the knapsack",
-          "shape": {
-            "type": "vector",
-            "isPermutation": false,
-            "size": {
-              "fixed": false,
-              "value": "N"
-            }
-          },
-          "symbol": "x",
-          "within": "integers",
-          "range": {
-            "lowerBound": 0,
-            "upperBound": 1
-          }
-        }
-      ],
-      "goals": [
-        {
-          "name": "Maximize the value of the items",
-          "expression": "sum x[i]*item[i].value over i=(1:N)",
-          "sense": "maximize",
-          "weight": 1
-        }
-      ],
-      "constraints": [
-        {
-          "expression": "sum x[i]*item[i].weight over i=(1:N) <= MaxWeight",
-          "name": "Limit the total weight of the items in the knapsack"
-        }
-      ],
+      "parameters": [],
+      "variables": [],
+      "goals": [],
+      "constraints": [],
       "classes": [
         {
           "attributes": [
@@ -208,279 +165,279 @@ export const getProblems = () => dispatch => {
           "attributes": [
             {
               "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 1"
-            },
-            {
-              "attribute": "value",
-              "value": 33
-            },
-            {
-              "attribute": "weight",
-              "value": 15
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
               "value": "Item 2"
+            },
+            {
+              "attribute": "value",
+              "value": 20
+            },
+            {
+              "attribute": "weight",
+              "value": 18
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 3"
+            },
+            {
+              "attribute": "value",
+              "value": 24
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 5"
+            },
+            {
+              "attribute": "value",
+              "value": 34
+            },
+            {
+              "attribute": "weight",
+              "value": 28
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 6"
+            },
+            {
+              "attribute": "value",
+              "value": 39
+            },
+            {
+              "attribute": "weight",
+              "value": 27
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 7"
+            },
+            {
+              "attribute": "value",
+              "value": 30
+            },
+            {
+              "attribute": "weight",
+              "value": 10
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 8"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 9"
+            },
+            {
+              "attribute": "value",
+              "value": 42
+            },
+            {
+              "attribute": "weight",
+              "value": 24
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 10"
+            },
+            {
+              "attribute": "value",
+              "value": 30
+            },
+            {
+              "attribute": "weight",
+              "value": 18
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 11"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 12"
+            },
+            {
+              "attribute": "value",
+              "value": 37
+            },
+            {
+              "attribute": "weight",
+              "value": 18
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 13"
+            },
+            {
+              "attribute": "value",
+              "value": 40
+            },
+            {
+              "attribute": "weight",
+              "value": 20
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 14"
+            },
+            {
+              "attribute": "value",
+              "value": 24
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 15"
+            },
+            {
+              "attribute": "value",
+              "value": 18
+            },
+            {
+              "attribute": "weight",
+              "value": 20
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 16"
+            },
+            {
+              "attribute": "value",
+              "value": 26
+            },
+            {
+              "attribute": "weight",
+              "value": 24
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 17"
+            },
+            {
+              "attribute": "value",
+              "value": 38
+            },
+            {
+              "attribute": "weight",
+              "value": 24
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 18"
+            },
+            {
+              "attribute": "value",
+              "value": 33
+            },
+            {
+              "attribute": "weight",
+              "value": 15
+            }
+          ],
+          "class": "item"
+        },
+        {
+          "attributes": [
+            {
+              "attribute": "name",
+              "value": "Item 19"
             },
             {
               "attribute": "value",
@@ -497,7 +454,7 @@ export const getProblems = () => dispatch => {
           "attributes": [
             {
               "attribute": "name",
-              "value": "Item 3"
+              "value": "Item 20"
             },
             {
               "attribute": "value",
@@ -514,7 +471,7 @@ export const getProblems = () => dispatch => {
           "attributes": [
             {
               "attribute": "name",
-              "value": "Item 4"
+              "value": "Item 21"
             },
             {
               "attribute": "value",
@@ -523,23 +480,6 @@ export const getProblems = () => dispatch => {
             {
               "attribute": "weight",
               "value": 8
-            }
-          ],
-          "class": "item"
-        },
-        {
-          "attributes": [
-            {
-              "attribute": "name",
-              "value": "Item 5"
-            },
-            {
-              "attribute": "value",
-              "value": 12
-            },
-            {
-              "attribute": "weight",
-              "value": 31
             }
           ],
           "class": "item"
@@ -568,9 +508,9 @@ export const getProblems = () => dispatch => {
             {
               "symbol": "x",
               "value": [
-                [1,1,1,1,1,1],
+                [1,0,0,0,0,1],
                 [0,1,0,0,1,0],
-                [0,0,1,0,0,1]
+                [0,0,1,1,0,0]
               ],
               "within": "integers",
               "name": "Assigning a teacher to a subject",
@@ -604,9 +544,9 @@ export const getProblems = () => dispatch => {
             {
               "symbol": "x",
               "value": [
-                [1,0,1,0,1,1],
-                [0,0,1,0,1,0],
-                [0,0,1,1,0,1]
+                [1,0,1,0,0,1],
+                [0,1,0,0,1,0],
+                [0,0,0,1,0,0]
               ],
               "within": "integers",
               "name": "Assigning a teacher to a subject",
@@ -634,20 +574,8 @@ export const getProblems = () => dispatch => {
       "description": "Optional description (optimal: 130)",
       "parameters": [],
       "variables": [],
-      "goals": [
-        {
-          "name": "Minimize the cost of assigning a teacher to a subject",
-          "expression": "*",
-          "sense": "minimize",
-          "weight": 1
-        }
-      ],
-      "constraints": [
-        {
-          "expression": "***",
-          "name": "***"
-        }
-      ],
+      "goals": [],
+      "constraints": [],
       "classes": [
         {
           "attributes": [
@@ -821,7 +749,7 @@ export const getProblems = () => dispatch => {
           "isFeasible": true,
           "goalValues": [
             {
-              "expression": "(sum Distances[city[i]][city[(i) + (1)]] over i = (1:(N) - (1))) + (Distances[city[N]][city[1]])",
+              "expression": "***",
               "sense": "minimize",
               "value": 18,
               "name": "goal name",
@@ -859,7 +787,7 @@ export const getProblems = () => dispatch => {
           "isFeasible": true,
           "goalValues": [
             {
-              "expression": "(sum Distances[city[i]][city[(i) + (1)]] over i = (1:(N) - (1))) + (Distances[city[N]][city[1]])",
+              "expression": "***",
               "sense": "minimize",
               "value": 10,
               "name": "goal name",
@@ -902,14 +830,7 @@ export const getProblems = () => dispatch => {
       "description": "Optional description (optimal: 130)",
       "parameters": [],
       "variables": [],
-      "goals": [
-        {
-          "name": "***",
-          "expression": "***",
-          "sense": "minimize",
-          "weight": 1
-        }
-      ],
+      "goals": [],
       "constraints": [],
       "classes": [
         {
@@ -936,7 +857,7 @@ export const getProblems = () => dispatch => {
           "attributes": [
             {
               "attribute": "name",
-              "value": "City 1 Very long Extend"
+              "value": "City 1 Very Long Name"
             },
             {
               "attribute": "distance",
@@ -1033,7 +954,7 @@ export const getProblems = () => dispatch => {
               "expression": "***",
               "sense": "minimize",
               "value": 6208,
-              "name": "***",
+              "name": "goal name",
               "weight": 1
             }
           ],
@@ -1069,7 +990,7 @@ export const getProblems = () => dispatch => {
               "expression": "***",
               "sense": "minimize",
               "value": 6208,
-              "name": "***",
+              "name": "goal name",
               "weight": 1
             }
           ],
@@ -1103,7 +1024,7 @@ export const getProblems = () => dispatch => {
     },
     "stateMessage": "The problem was successfully solved",
     "problem": {
-      "name": "Problema de VRP",
+      "name": "Problem VRP",
       "description": "Optional description (optimal: 130)",
       "parameters": [],
       "variables": [],
@@ -1316,7 +1237,7 @@ export const getProblems = () => dispatch => {
               "expression": "***",
               "sense": "minimize",
               "value": 127,
-              "name": "***",
+              "name": "goal name",
               "weight": 1
             }
           ],

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#bbffc4',
     margin: '3px',
     textAlign: 'center',
-    width: 60,
+    width: 70,
     height: 31,
     borderRadius: 3
   },
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#b5b5b5',
     margin: '3px',
     textAlign: 'center',
-    width: 60,
+    width: 70,
     height: 31,
     borderRadius: 3
   }
