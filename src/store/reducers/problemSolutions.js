@@ -18,6 +18,15 @@ const problemSolutionsReducer = (state = initstates, action) => {
         loading: false
       }
 
+    case 'addProblem':
+      const newProblems = state.problems.map(problem => problem)
+      newProblems.push(action.payload)
+      return {
+        ...state,
+        problems: newProblems,
+        loading: false
+      }
+
     case 'selectProblem':
       return {
         ...state,

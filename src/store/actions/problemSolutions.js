@@ -1727,13 +1727,19 @@ export const getProblems = () => dispatch => {
     "lastUpdate": 1605800054703
   }
 
-
-
   let data = [backpackSimple, backpackComplex, tsp, vrp, processingTask, assignment3D]
 
   dispatch({
     type: "setProblem",
     payload: data,
+  })
+}
+
+export const addProblem = (problem) => dispatch => {
+  dispatch(setProblemLoading())
+  dispatch({
+    type: "addProblem",
+    payload: problem,
   })
 }
 
@@ -1761,10 +1767,6 @@ const setProblemLoading = () => {
   }
 }
 
-export const rgbToHex = (r, g, b) => {
-  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-}
-
 export const perc2color = (perc) => {
 	var r, g, b = 0;
 	if(perc < 50) {
@@ -1777,4 +1779,17 @@ export const perc2color = (perc) => {
 	}
 	var h = r * 0x10000 + g * 0x100 + b * 0x1;
 	return '#' + ('000000' + h.toString(16)).slice(-6);
+}
+
+export const readFile = () => dispatch => {
+  let fileToLoad = document.getElementById("FileUpload").files[0];
+  let fileReader = new FileReader();
+  
+  fileReader.onload = function(fileLoadedEvent){
+    let fileRead = fileLoadedEvent.target.result;
+    const problem = JSON.parse(fileRead)
+    dispatch(addProblem(problem))
+  };
+
+  fileReader.readAsText(fileToLoad, "UTF-8"); 
 }
