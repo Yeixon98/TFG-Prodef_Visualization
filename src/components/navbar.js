@@ -29,8 +29,9 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '5px'
   },
   uploadBottom: {
-    backgroundColor: "#7b71ff",
-    color: "white",
+    backgroundColor: "white",
+    color: "black",
+    fontWeight: 500,
     padding: 9,
     borderRadius: 5,
     cursor: "pointer",
