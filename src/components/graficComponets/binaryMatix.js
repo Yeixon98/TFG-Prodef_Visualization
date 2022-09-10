@@ -77,9 +77,9 @@ const BinaryMatrix = (props) => {
                       attributes[value.attribute] = value.value
                     })
 
-                    let useWidth = attrStyle['width'] === 'default' ? 'auto' : attributes[attrStyle['width']]
-                    let useHeight = attrStyle['height'] === 'default' ? 'auto' : attributes[attrStyle['height']]
-                    let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']] % 100
+                    let useWidth = attrStyle['width'] === 'default' ? 'auto' : attributes[attrStyle['width']] + 90
+                    let useHeight = attrStyle['height'] === 'default' ? 'auto' : attributes[attrStyle['height']] + 30 
+                    let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']]
 
                     return (
                       <Grid item container justifyContent="center" alignItems="center"

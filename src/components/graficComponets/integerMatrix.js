@@ -115,7 +115,7 @@ const IntegerMatrix = (props) => {
   
                         let useWidth = attrStyle['width'] === 'default' ? 'auto' : attributes[attrStyle['width']] * 1.5 + 40
                         let useHeight = attrStyle['height'] === 'default' ? 'auto' : attributes[attrStyle['height']] * 1.5 + 20
-                        let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']] % 100
+                        let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']]
 
                         return (
                           <td

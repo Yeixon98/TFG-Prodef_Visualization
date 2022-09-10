@@ -56,7 +56,7 @@ const PermutationVector = (props) => {
             
             let useWidth = attrStyle['width'] === 'default' ? '' : attributes[attrStyle['width']] + 30
             let useHeight = attrStyle['height'] === 'default' ? '' : attributes[attrStyle['height']] + 30
-            let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']] % 100
+            let useColor = attrStyle['color'] === 'default' ? 0 : attributes[attrStyle['color']]
 
             return (
               <Grid item container xs wrap="nowrap" justifyContent="space-around" alignItems="center">

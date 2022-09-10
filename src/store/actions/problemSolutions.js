@@ -1817,7 +1817,8 @@ export const getProblems = () => dispatch => {
     "lastUpdate": 1605800054703
   }
 
-  let data = [backpackSimple, backpackComplex, tsp, vrp, processingTask, assignment3D]
+  let data = []
+  // let data = [backpackSimple, backpackComplex, tsp, vrp, processingTask, assignment3D]
 
   dispatch({
     type: "setProblem",
