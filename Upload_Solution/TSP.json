@@ -1,0 +1,296 @@
+{
+  "state": "resolved",
+  "solution": {
+    "results": [
+      {
+        "isFeasible": true,
+        "goalValues": [
+          {
+            "expression": "***",
+            "sense": "minimize",
+            "value": 18,
+            "name": "goal name",
+            "weight": 1
+          }
+        ],
+        "variableValues": [
+          {
+            "symbol": "city",
+            "value": [
+              0,
+              2,
+              4,
+              1,
+              3,
+              5,
+              8,
+              6,
+              9,
+              7
+            ],
+            "within": "integers",
+            "name": "city",
+            "range": {
+              "lowerBound": "-Infinity",
+              "upperBound": "Infinity"
+            },
+            "shape": {
+              "type": "vector",
+              "isPermutation": true,
+              "size": {
+                "fixed": false,
+                "value": "N"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "isFeasible": true,
+        "goalValues": [
+          {
+            "expression": "***",
+            "sense": "minimize",
+            "value": 10,
+            "name": "goal name",
+            "weight": 1
+          }
+        ],
+        "variableValues": [
+          {
+            "symbol": "city",
+            "value": [
+              3,
+              0,
+              1,
+              2,
+              4,
+              6,
+              8,
+              9,
+              7,
+              5
+            ],
+            "within": "integers",
+            "name": "city",
+            "range": {
+              "lowerBound": "-Infinity",
+              "upperBound": "Infinity"
+            },
+            "shape": {
+              "type": "vector",
+              "isPermutation": true,
+              "size": {
+                "fixed": false,
+                "value": "N"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "computingTime": 0
+  },
+  "stateMessage": "The problem was successfully solved",
+  "problem": {
+    "name": "Problem TSP",
+    "description": "Optional description (optimal: 130)",
+    "parameters": [],
+    "variables": [],
+    "goals": [],
+    "constraints": [],
+    "classes": [
+      {
+        "attributes": [
+          {
+            "name": "Name",
+            "symbol": "name"
+          },
+          {
+            "name": "Distance",
+            "symbol": "distance"
+          },
+          {
+            "name": "Large",
+            "symbol": "large"
+          }
+        ],
+        "name": "City",
+        "symbol": "city"
+      }
+    ],
+    "objects": [
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 1"
+          },
+          {
+            "attribute": "distance",
+            "value": [0,4,5,1,8,6,1,8,4,3]
+          },
+          {
+            "attribute": "large",
+            "value": 25
+          }
+        ],
+        "class": "city"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 2"
+          },
+          {
+            "attribute": "distance",
+            "value": [1,0,2,8,7,6,1,8,4,3]
+          },
+          {
+            "attribute": "large",
+            "value": 18
+          }
+        ],
+        "class": "city"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 3"
+          },
+          {
+            "attribute": "distance",
+            "value": [6,4,0,9,1,6,1,8,4,3]
+          },
+          {
+            "attribute": "large",
+            "value": 30
+          }
+        ],
+        "class": "city"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 4"
+          },
+          {
+            "attribute": "distance",
+            "value": [3,4,3,0,8,6,1,8,4,3]
+          },
+          {
+            "attribute": "large",
+            "value": 38
+          }
+        ],
+        "class": "city"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 5"
+          },
+          {
+            "attribute": "distance",
+            "value": [1,9,3,6,0,6,1,8,4,3]
+          },
+          {
+            "attribute": "large",
+            "value": 15
+          }
+        ],
+        "class": "city"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 6"
+          },
+          {
+            "attribute": "distance",
+            "value": [1,9,3,6,6,0,1,8,4,3]
+          },
+          {
+            "attribute": "large",
+            "value": 15
+          }
+        ],
+        "class": "city"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 7"
+          },
+          {
+            "attribute": "distance",
+            "value": [1,9,3,6,6,1,0,8,4,3]
+          },
+          {
+            "attribute": "large",
+            "value": 15
+          }
+        ],
+        "class": "city"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 8"
+          },
+          {
+            "attribute": "distance",
+            "value": [1,9,3,6,6,1,8,0,4,3]
+          },
+          {
+            "attribute": "large",
+            "value": 15
+          }
+        ],
+        "class": "city"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 9"
+          },
+          {
+            "attribute": "distance",
+            "value": [1,9,3,6,6,1,8,4,0,3]
+          },
+          {
+            "attribute": "large",
+            "value": 15
+          }
+        ],
+        "class": "city"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "City 10"
+          },
+          {
+            "attribute": "distance",
+            "value": [1,9,3,6,6,1,8,4,0]
+          },
+          {
+            "attribute": "large",
+            "value": 15
+          }
+        ],
+        "class": "city"
+      }
+    ]
+  },
+  "lastUpdate": 1604909954703
+}

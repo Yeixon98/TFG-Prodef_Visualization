@@ -1,0 +1,273 @@
+{
+  "state": "resolved",
+  "solution": {
+    "results": [
+      {
+        "isFeasible": true,
+        "goalValues": [
+          {
+            "expression": "***",
+            "sense": "minimize",
+            "value": 84,
+            "name": "Minimizes the cost of assigning a teacher to a subject",
+            "weight": 1
+          }
+        ],
+        "variableValues": [
+          {
+            "symbol": "x",
+            "value": [
+              [1, 0, 0, 0, 0],
+              [0, 1, 0, 0, 0],
+              [0, 0, 0, 1, 0],
+              [0, 0, 1, 0, 0],
+              [0, 0, 0, 0, 1]
+            ],
+            "within": "integers",
+            "name": "Assigning a teacher to a subject",
+            "range": {
+              "lowerBound": 0,
+              "upperBound": 1
+            },
+            "shape": {
+              "type": "matrix",
+              "isPermutation": false,
+              "size": {
+                "fixed": false,
+                "value": "N"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "isFeasible": true,
+        "goalValues": [
+          {
+            "expression": "***",
+            "sense": "minimize",
+            "value": 84,
+            "name": "Minimizes the cost of assigning a teacher to a subject",
+            "weight": 1
+          }
+        ],
+        "variableValues": [
+          {
+            "symbol": "x",
+            "value": [
+              [0, 0, 1, 0, 0],
+              [0, 1, 0, 0, 0],
+              [0, 0, 0, 1, 0],
+              [0, 0, 0, 0, 1],
+              [1, 0, 0, 0, 0]
+            ],
+            "within": "integers",
+            "name": "Assigning a teacher to a subject",
+            "range": {
+              "lowerBound": 0,
+              "upperBound": 1
+            },
+            "shape": {
+              "type": "matrix",
+              "isPermutation": false,
+              "size": {
+                "fixed": false,
+                "value": "N"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "computingTime": 5015
+  },
+  "stateMessage": "The problem was successfully solved",
+  "problem": {
+    "name": "Assignment 2D",
+    "description": "Optional description (optimal: 130)",
+    "parameters": [],
+    "variables": [],
+    "goals": [],
+    "constraints": [],
+    "classes": [
+      {
+        "attributes": [
+          {
+            "name": "Name",
+            "symbol": "name"
+          }
+        ],
+        "name": "Profesor",
+        "symbol": "profesor"
+      },
+      {
+        "attributes": [
+          {
+            "name": "Name",
+            "symbol": "name"
+          },
+          {
+            "attribute": "Time",
+            "symbol": "time"
+          },
+          {
+            "attribute": "Cost",
+            "symbol": "cost"
+          }
+        ],
+        "name": "Subjects",
+        "symbol": "subjects"
+      }
+    ],
+    "objects": [
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Profesor 1"
+          }
+        ],
+        "class": "profesor"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Profesor 2"
+          }
+        ],
+        "class": "profesor"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Profesor 3"
+          }
+        ],
+        "class": "profesor"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Profesor 4"
+          }
+        ],
+        "class": "profesor"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Profesor 5"
+          }
+        ],
+        "class": "profesor"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Subjects 1"
+          },
+          {
+            "attribute": "time",
+            "value": 68
+          },
+          {
+            "attribute": "cost",
+            "value": 44
+          }
+        ],
+        "class": "subjects"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Subjects 2"
+          },
+          {
+            "attribute": "time",
+            "value": 8
+          },
+          {
+            "attribute": "cost",
+            "value": 14
+          }
+        ],
+        "class": "subjects"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Subjects 3"
+          },
+          {
+            "attribute": "time",
+            "value": 98
+          },
+          {
+            "attribute": "cost",
+            "value": 65
+          }
+        ],
+        "class": "subjects"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Subjects 4"
+          },
+          {
+            "attribute": "time",
+            "value": 38
+          },
+          {
+            "attribute": "cost",
+            "value": 30
+          }
+        ],
+        "class": "subjects"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Subjects 5"
+          },
+          {
+            "attribute": "time",
+            "value": 24
+          },
+          {
+            "attribute": "cost",
+            "value": 80
+          }
+        ],
+        "class": "subjects"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Subjects 6"
+          },
+          {
+            "attribute": "time",
+            "value": 20
+          },
+          {
+            "attribute": "cost",
+            "value": 34
+          }
+        ],
+        "class": "subjects"
+      }
+    ]
+  },
+  "lastUpdate": 1605879754703
+}

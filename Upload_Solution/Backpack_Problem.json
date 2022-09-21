@@ -1,0 +1,543 @@
+{
+  "state": "resolved",
+  "solution": {
+    "results": [
+      {
+        "isFeasible": true,
+        "goalValues": [
+          {
+            "expression": "***",
+            "sense": "maximize",
+            "value": 130,
+            "name": "Maximize the value of the items",
+            "weight": 1
+          }
+        ],
+        "variableValues": [
+          {
+            "symbol": "x",
+            "value": [
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "within": "integers",
+            "name": "Items in the knapsack",
+            "range": {
+              "lowerBound": 0,
+              "upperBound": 1
+            },
+            "shape": {
+              "type": "vector",
+              "isPermutation": false,
+              "size": {
+                "fixed": false,
+                "value": "N"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "isFeasible": false,
+        "goalValues": [
+          {
+            "expression": "***",
+            "sense": "maximize",
+            "value": 130,
+            "name": "Maximize the value of the items",
+            "weight": 1
+          }
+        ],
+        "variableValues": [
+          {
+            "symbol": "x",
+            "value": [
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "within": "integers",
+            "name": "Items in the knapsack",
+            "range": {
+              "lowerBound": 0,
+              "upperBound": 1
+            },
+            "shape": {
+              "type": "vector",
+              "isPermutation": false,
+              "size": {
+                "fixed": false,
+                "value": "N"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "computingTime": 5015
+  },
+  "stateMessage": "The problem was successfully solved",
+  "problem": {
+    "name": "Basic binary knapsack problem",
+    "description": "Optional description (optimal: 130)",
+    "parameters": [],
+    "variables": [],
+    "goals": [],
+    "constraints": [],
+    "classes": [
+      {
+        "attributes": [
+          {
+            "name": "Name",
+            "symbol": "name"
+          },
+          {
+            "name": "Value",
+            "symbol": "value"
+          },
+          {
+            "name": "Weight",
+            "symbol": "weight"
+          }
+        ],
+        "name": "Item",
+        "symbol": "item"
+      }
+    ],
+    "objects": [
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 1"
+          },
+          {
+            "attribute": "value",
+            "value": 33
+          },
+          {
+            "attribute": "weight",
+            "value": 15
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 2"
+          },
+          {
+            "attribute": "value",
+            "value": 20
+          },
+          {
+            "attribute": "weight",
+            "value": 18
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 3"
+          },
+          {
+            "attribute": "value",
+            "value": 24
+          },
+          {
+            "attribute": "weight",
+            "value": 15
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 4"
+          },
+          {
+            "attribute": "value",
+            "value": 24
+          },
+          {
+            "attribute": "weight",
+            "value": 15
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 5"
+          },
+          {
+            "attribute": "value",
+            "value": 34
+          },
+          {
+            "attribute": "weight",
+            "value": 28
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 6"
+          },
+          {
+            "attribute": "value",
+            "value": 39
+          },
+          {
+            "attribute": "weight",
+            "value": 27
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 7"
+          },
+          {
+            "attribute": "value",
+            "value": 30
+          },
+          {
+            "attribute": "weight",
+            "value": 10
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 8"
+          },
+          {
+            "attribute": "value",
+            "value": 33
+          },
+          {
+            "attribute": "weight",
+            "value": 15
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 9"
+          },
+          {
+            "attribute": "value",
+            "value": 42
+          },
+          {
+            "attribute": "weight",
+            "value": 24
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 10"
+          },
+          {
+            "attribute": "value",
+            "value": 30
+          },
+          {
+            "attribute": "weight",
+            "value": 18
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 11"
+          },
+          {
+            "attribute": "value",
+            "value": 33
+          },
+          {
+            "attribute": "weight",
+            "value": 15
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 12"
+          },
+          {
+            "attribute": "value",
+            "value": 37
+          },
+          {
+            "attribute": "weight",
+            "value": 18
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 13"
+          },
+          {
+            "attribute": "value",
+            "value": 40
+          },
+          {
+            "attribute": "weight",
+            "value": 20
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 14"
+          },
+          {
+            "attribute": "value",
+            "value": 24
+          },
+          {
+            "attribute": "weight",
+            "value": 15
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 15"
+          },
+          {
+            "attribute": "value",
+            "value": 18
+          },
+          {
+            "attribute": "weight",
+            "value": 20
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 16"
+          },
+          {
+            "attribute": "value",
+            "value": 26
+          },
+          {
+            "attribute": "weight",
+            "value": 24
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 17"
+          },
+          {
+            "attribute": "value",
+            "value": 38
+          },
+          {
+            "attribute": "weight",
+            "value": 24
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 18"
+          },
+          {
+            "attribute": "value",
+            "value": 33
+          },
+          {
+            "attribute": "weight",
+            "value": 15
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 19"
+          },
+          {
+            "attribute": "value",
+            "value": 24
+          },
+          {
+            "attribute": "weight",
+            "value": 20
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 20"
+          },
+          {
+            "attribute": "value",
+            "value": 36
+          },
+          {
+            "attribute": "weight",
+            "value": 17
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 21"
+          },
+          {
+            "attribute": "value",
+            "value": 37
+          },
+          {
+            "attribute": "weight",
+            "value": 8
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 22"
+          },
+          {
+            "attribute": "value",
+            "value": 24
+          },
+          {
+            "attribute": "weight",
+            "value": 15
+          }
+        ],
+        "class": "item"
+      },
+      {
+        "attributes": [
+          {
+            "attribute": "name",
+            "value": "Item 23"
+          },
+          {
+            "attribute": "value",
+            "value": 24
+          },
+          {
+            "attribute": "weight",
+            "value": 15
+          }
+        ],
+        "class": "item"
+      }
+    ]
+  },
+  "lastUpdate": 1605879754703
+}

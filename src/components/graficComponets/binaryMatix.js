@@ -22,8 +22,8 @@ const BinaryMatrix = (props) => {
   const objects = allClass.map(symbol => {
     return problem.problem.objects.filter(object => object.class === symbol)
   })
-  const objectsRow = objects[0].length === lengthRow ? objects[0] : objects[1]
-  const objectsCol = objects[1].length === lengthCol ? objects[1] : objects[0]
+  const objectsRow = objects[1].length === lengthRow ? objects[1] : objects[0]
+  const objectsCol = objects[0].length === lengthCol ? objects[1] : objects[0]
   
   const allAttributes = objectsCol[0].attributes.map(value => value.attribute).filter(attribute => attribute !== "name")
 
